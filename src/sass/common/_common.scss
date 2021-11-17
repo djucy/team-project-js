@@ -1,0 +1,44 @@
+//основные настройки, обнуления.
+
+//убираем оформление заголовков.
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+  margin: 0;
+}
+
+//убираем оформление списков.
+.list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+//убираем оформление ссылок.
+.link {
+  color: inherit;
+  text-decoration: none;
+}
+
+//добавляем оформление изображениям
+img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+//добавили клас для скрытия объектов
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  border: 0;
+  padding: 0;
+  clip: rect(0 0 0 0);
+  overflow: hidden;
+}
