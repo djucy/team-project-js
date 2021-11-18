@@ -1,0 +1,45 @@
+// :root {
+//   --header-tex-color: #ffffff;
+//   --primary-tex-color: #000000;
+//   --secondary-tex-color: #ff6b08;
+//   --error-tex-color: #ff001b;
+// }
+
+// body {
+//   font-family: Roboto;
+//   font-style: normal;
+//   font-weight: 500;
+//   font-size: 12px;
+//   line-height: 1.333;
+// }
+
+.card-movie__img {
+  display: block;
+  object-fit: cover;
+  border-radius: 5px;
+}
+
+.card-movie__title {
+  display: flex;
+  margin-top: 10px;
+  text-transform: uppercase;
+}
+
+.card-movie__text-container {
+  display: flex;
+  margin-top: 3px;
+  color: #ff6b08;
+}
+
+.card-movie__delimiter {
+  margin-left: 5px;
+  margin-right: 5px;
+}
+
+.card-movie__imbd {
+  margin-left: 10px;
+  padding: 0 6px;
+  border-radius: 5px;
+  background-color: #ff6b08;
+  color: #ffffff;
+}
