@@ -12,6 +12,7 @@ const api = new Api();
 //Разметка карточек по запросу на бэк
 api.fetchMovie().then(data => {
   onRatingFixedNumber(data);
+  onFilmReleaseYear(data);
   refs.cardList.insertAdjacentHTML('beforeend', createCardMovies(data));
 });
 
@@ -23,18 +24,35 @@ api.fetchGenres().then(data => {
 // перезаписывает значение рейтинга
 function onRatingFixedNumber(data) {
   data.forEach(el => {
-    return (el.vote_average = number(el.vote_average));
+    return (el.vote_average = onFixedNumber(el.vote_average));
   });
   // console.log(data);
 }
 
 //добавляет к одинарному символу знак после запятой
-function number(qval) {
+function onFixedNumber(qval) {
   if (qval.toString().length === 1) {
     return '.0'.padStart(3, qval);
   }
   return qval;
 }
+
+// перезаписывает значение даты на год 
+function onFilmReleaseYear(data) {
+  data.forEach(el => {
+    return ((el.release_date = onSliceNumber(el.release_date)) || (el.first_air_date = onSliceNumber(el.first_air_date)))
+  });
+}
+
+//отрезает лишние символы и остается год
+function onSliceNumber(release) {
+  if (release == undefined) {
+    return
+  }
+  return release.slice(0, 4)
+}
+
+
 
 //отрезает от даты релиза символы после 4-го знака
 // api.fetchMovie().then(data => {
