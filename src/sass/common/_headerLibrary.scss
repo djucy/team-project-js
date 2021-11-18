@@ -2,3 +2,13 @@
   .header {
     background-image: linear-gradient(rgba(0, 0, 0, 0.56), rgba(0, 0, 0, 0.56)), url(../imagesHeader/cinema.jpg);
   }
+  .nav__connection::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    background-color: rgba(255, 107, 8, 1);
+    border-radius: 2px;
+    width: 100%;
+    height: 3px;
+  }
