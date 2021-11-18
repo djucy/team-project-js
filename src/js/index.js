@@ -7,15 +7,34 @@ const refs = {
   cardList: document.querySelector('.cards-movie-list'),
 }
 
+
+
+
+
+
 const api = new Api();
 
+//Разметка карточек по запросу на бэк
 api.fetchMovie()
   .then((data) => {
-      // console.log(data)
-      // console.log(data.release_date);
-      // const relData = data.map(el => el.release_date.slice(0, 4))
-      // console.log(relData)
-      return refs.cardList.insertAdjacentHTML('beforeend', createCardMovies(data))
+    const genreIds = data.map(el => el.genre_ids)
+    // console.log(genreIds)
+
+    const comparison = genreIds.forEach(element => {
+      // console.log(api.fetchGenres(element).then(console.log))
+      api.fetchGenres(element).then()
+    });
+
+    // console.log(comparison)
+    return refs.cardList.insertAdjacentHTML('beforeend', createCardMovies(data))
   })
     // .catch(console.log(error))
 
+
+api.fetchGenres().then((data) => {
+    // console.log(data)
+  // const genreName = data.map(el => el);
+  const genreName = data
+  // console.log(genreName)
+  return genreName
+}) 
