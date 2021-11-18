@@ -11,25 +11,40 @@ const api = new Api();
 
 //Разметка карточек по запросу на бэк
 api.fetchMovie().then(data => {
-  const genreIds = data.map(el => el.genre_ids);
-  // console.log(genreIds)
-
-  const comparison = genreIds.forEach(element => {
-    // console.log(api.fetchGenres(element).then(console.log))
-    api.fetchGenres(element).then();
-  });
-
-  // console.log(comparison)
-  return refs.cardList.insertAdjacentHTML('beforeend', createCardMovies(data));
+  onRatingFixedNumber();// нужно както залить в шаблон на место vote_average
+  refs.cardList.insertAdjacentHTML('beforeend', createCardMovies(data));
 });
-// .catch(console.log(error))
 
+//запрос данных для жанров (возвращает массив объектов с свойствами жанров)
 api.fetchGenres().then(data => {
-  console.log(data);
-  // const genreName = data.map(el => el);
-  const genreName = data;
-  console.log(genreName);
-  return genreName;
+  return data;
 });
 
-console.log(1);
+  //добавляет в рейтинг знак после запятой
+function onRatingFixedNumber() {
+  api.fetchMovie()
+    .then(data => {
+      data.forEach(el => el.vote_average.toFixed([1]))
+    })
+}
+
+//отрезает от даты релиза символы после 4-го знака
+api.fetchMovie().then(data => {
+  const year = data.map(el => {
+    const dataStr = el.release_date
+    // .slice(0, 4)
+    // console.log(dataStr);
+    return dataStr;
+  })
+  // console.log(year)
+})
+
+//Заменяет значение жанра на строку с именем жанра  
+  // const genreIds = data.map(el => el.genre_ids);
+  // console.log(genreIds)
+  // const comparison = genreIds.forEach(element => {
+    // console.log(api.fetchGenres(element).then(console.log))
+    // api.fetchGenres(element).then();
+  // });
+// })
+
