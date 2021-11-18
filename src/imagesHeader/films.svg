@@ -1,0 +1,7 @@
+<svg aria-hidden="true" style="position:absolute;width:0;height:0" xmlns="http://www.w3.org/2000/svg" overflow="hidden"><defs>
+<symbol id="icon-arrow-right" viewBox="0 0 32 32"><path stroke-linejoin="round" stroke-linecap="round" stroke-width="2.7" d="M7 16h18M16 25l9-9-9-9"/></symbol>
+<symbol id="icon-left" viewBox="0 0 32 32"><path stroke-linejoin="round" stroke-linecap="round" stroke-width="2.7" d="M7 16h18M16 25l9-9-9-9"/></symbol>
+<symbol id="icon-film" viewBox="0 0 32 32"><path  stroke="var(--color1, #818181)" stroke-linejoin="round" stroke-linecap="round" stroke-width="2.7" d="M26 3H6C4 3 3 4 3 6v20c0 2 1 3 3 3h20c2 0 3-1 3-3V6c0-2-1-3-3-3zM9 3v26M23 3v26M3 16h26M3 9h6M3 23h6M23 23h6M23 9h6"/></symbol>
+<symbol id="icon-hart" viewBox="0 0 34 32"><path  d="m17 32-2-3C6 21 0 16 0 9c0-5 4-9 9-9 3 0 6 1 8 4 2-3 5-4 8-4 5 0 9 4 9 9 0 7-5 12-14 20l-3 3z"/></symbol>
+<symbol id="icon-search" viewBox="0 0 32 32"><path  stroke="var(--color3, #fff)" stroke-linejoin="round" stroke-linecap="round" stroke-width="2.7" d="M15 25a11 11 0 1 0 0-21 11 11 0 0 0 0 21zM28 28l-6-6"/></symbol>
+</defs></svg>
