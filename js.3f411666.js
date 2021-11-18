@@ -11,4 +11,4 @@ var e,t=arguments[3];!function(t,r){"object"==typeof exports&&"object"==typeof m
 },{}],"QvaY":[function(require,module,exports) {
 "use strict";require("../sass/main.scss");var e=t(require("../templates/cardMovie.hbs")),r=t(require("./apiFetch"));function t(e){return e&&e.__esModule?e:{default:e}}const s={cardList:document.querySelector(".cards-movie-list")},n=new r.default;n.fetchMovie().then(r=>{r.map(e=>e.genre_ids).forEach(e=>{n.fetchGenres(e).then()});return s.cardList.insertAdjacentHTML("beforeend",(0,e.default)(r))}),n.fetchGenres().then(e=>{return e});
 },{"../sass/main.scss":"clu1","../templates/cardMovie.hbs":"c3Pu","./apiFetch":"cSna"}]},{},["QvaY"], null)
-//# sourceMappingURL=/team-project-js/js.89398e6f.js.map
+//# sourceMappingURL=/team-project-js/js.3f411666.js.map
