@@ -25,11 +25,11 @@ api.fetchMovie().then(data => {
 // .catch(console.log(error))
 
 api.fetchGenres().then(data => {
-  console.log(data);
+  // console.log(data);
   // const genreName = data.map(el => el);
   const genreName = data;
-  console.log(genreName);
+  // console.log(genreName);
   return genreName;
 });
 
-console.log(1);
+// console.log(1);
