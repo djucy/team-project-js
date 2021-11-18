@@ -1,0 +1,38 @@
+.footer__container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100px;
+  background-color: #f7f7f7;
+}
+.footer__link {
+  display: flex;
+  margin-top: 10px;
+  align-items: center;
+}
+.heart__svg {
+  width: 14px;
+  height: 12.75px;
+  fill: #ff6b08;
+  margin: 0 10px;
+}
+.footer__text {
+  color: #545454;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 1.2;
+}
+
+// media screen 768
+@media screen and(min-width:768px) {
+  .footer__container {
+    height: 77px;
+    padding-top: 30px;
+    flex-direction: row;
+    align-items: baseline;
+  }
+  .footer__text {
+    font-size: 16;
+  }
+}
