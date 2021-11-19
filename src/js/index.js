@@ -2,7 +2,7 @@ import '../sass/main.scss';
 //Сюда импортируем все свои джеес модули
 import createCardMovies from '../templates/cardMovie.hbs';
 import Api from './apiFetch';
-
+// import modalTeam from './modal-team';
 const refs = {
   cardList: document.querySelector('.cards-movie-list'),
 };
@@ -13,6 +13,7 @@ const api = new Api();
 api.fetchMovie().then(data => {
   onRatingFixedNumber(data);
   onFilmReleaseYear(data);
+
   refs.cardList.insertAdjacentHTML('beforeend', createCardMovies(data));
 });
 
@@ -26,8 +27,8 @@ function onRatingFixedNumber(data) {
   data.forEach(el => {
     return (el.vote_average = onFixedNumber(el.vote_average));
   });
-  // console.log(data);
 }
+// console.log(data);
 
 //добавляет к одинарному символу знак после запятой
 function onFixedNumber(qval) {
@@ -37,19 +38,45 @@ function onFixedNumber(qval) {
   return qval;
 }
 
-// перезаписывает значение даты на год 
+//Разметка карточек по запросу на бэк
+api.fetchMovie().then(data => {
+  const genreIds = data.map(el => el.genre_ids);
+  // console.log(genreIds)
+
+  const comparison = genreIds.forEach(element => {
+    // console.log(api.fetchGenres(element).then(console.log))
+    api.fetchGenres(element).then();
+  });
+
+  // console.log(comparison)
+  return refs.cardList.insertAdjacentHTML('beforeend', createCardMovies(data));
+});
+// .catch(console.log(error))
+
+api.fetchGenres().then(data => {
+  // console.log(data)
+  // const genreName = data.map(el => el);
+  const genreName = data;
+  // console.log(genreName)
+  return genreName;
+});
+
+// перезаписывает значение даты на год
 function onFilmReleaseYear(data) {
   data.forEach(el => {
-    return ((el.release_date = onSliceNumber(el.release_date)) || (el.first_air_date = onSliceNumber(el.first_air_date)))
+    return (
+      (el.release_date = onSliceNumber(el.release_date)) ||
+      (el.first_air_date = onSliceNumber(el.first_air_date))
+    );
   });
 }
 
 //отрезает лишние символы и остается год. Так приходит с бека "2021-11-11"
 function onSliceNumber(release) {
   if (release == undefined) {
-    return
+    return;
   }
-  return release.slice(0, 4)
+  return release.slice(0, 4);
 }
 
 
@@ -60,15 +87,3 @@ function onSliceNumber(release) {
 // console.log(api.fetchGenres(element).then(console.log))
 // api.fetchGenres(element).then();
 // });
-// })
-
-// onRemoveGemres()
-
-// function onRemoveGemres() {
-  
-// }
-
-
-// function onComparingArrayAndObject() {
-  
-//  }

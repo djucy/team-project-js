@@ -1,0 +1,71 @@
+.card_modal {
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: 500;
+    display: flex;
+    padding-left: 30px;
+    padding-right: 30px;
+    padding-bottom: 40px;
+    padding-top: 50px;
+
+    margin-left: auto;
+    margin-right: auto;
+
+    @media screen and (min-width: 1024px) {
+    width: 882px;
+    height: 568px;
+    
+    }
+
+    @media screen and (min-width: 768px) and (max-width: 1023px) {
+
+    }  
+    
+    @media screen and (min-width: 320px) and (max-width: 767px) {
+
+    }    
+}
+
+.img_movie {
+    @media screen and (min-width: 1024px) {
+       min-width: 396px;
+        }
+    
+        @media screen and (min-width: 768px) and (max-width: 1023px) {
+            min-width: 264px;
+        }  
+        
+        @media screen and (min-width: 320px) and (max-width: 767px) {
+            min-width: 240px;
+        }   
+}
+
+.about_movie {
+    margin-left: 30px;
+
+    &__title {
+        font-size: 30px;
+        line-height: 35px; 
+        margin-bottom: 20px;
+    }
+
+    &__table {
+        font-size: 12px;
+        line-height: 1.33;
+        margin-top: 20px;
+        margin-bottom: 20px;
+
+        @media screen and (min-width: 1024px) {
+            width: 100%;
+             }
+    }
+
+    &__text {
+        font-size: 12px;
+        line-height: 1.67;
+        margin-bottom: 20px;
+        margin-top: 10px;
+    }
+
+}
+
