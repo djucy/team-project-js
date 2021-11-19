@@ -69,7 +69,8 @@ p {
 
 .logo {
   display: inline-flex;
-  align-items: flex-end;
+align-items: center;
+  
 }
 
 .logo__text {
@@ -78,6 +79,7 @@ p {
   font-weight: 500;
   margin-left: 12px;
   font-size: 30px;
+  align-items: center;
 }
 
 @media screen and (min-width: 768px) {
@@ -103,6 +105,8 @@ p {
 
   line-height: 1.1716;
   letter-spacing: 0, 03em;
+padding-bottom: 3px;
+ 
 }
 .nav__link-home::after {
   content: '';
@@ -119,13 +123,14 @@ p {
 .navigation {
   display: flex;
   justify-content: space-between;
-  align-items: flex-end;
+  align-items: center;
 }
 .nav__connection {
   position: relative;
 
   line-height: 1.1716;
   letter-spacing: 0, 03em;
+  padding-bottom: 3px;
 }
 
 .nav__connection::after {
@@ -145,11 +150,13 @@ p {
 }
 
 .form {
-  padding-bottom: 97px;
+ padding-bottom: 97px;
   display: flex;
 
   position: relative;
   justify-content: center;
+  align-items: center;
+  
 }
 
 .placeholder {
@@ -166,15 +173,40 @@ p {
   outline-style: none;
 
   line-height: 1.1721;
+ 
+
+
+ 
+
 }
 
-.icon__search {
-  position: absolute;
-  top: 6px;
-}
+
 
 @media screen and (min-width: 768px) {
   .placeholder {
     width: 336px;
+  }
+}
+.icon-style{
+ width: 24px;
+ height: 24px;
+}
+.filmoteka{
+  width: 24px;
+ height: 24px;
+}
+.icon__search{
+position: absolute;
+left:95%;
+
+}
+@media screen and (min-width: 768px) {
+  .icon__search{
+    left:75%;
+  }
+}
+@media screen and (min-width: 1024px) {
+  .icon__search {
+    left:67%;
   }
 }
