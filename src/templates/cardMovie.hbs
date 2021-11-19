@@ -1,9 +1,8 @@
-<li class="card-list__item">
   {{#each this}}
+<li class="card-list__item">
     <div class="card-movie">
       <div class="card-movie__img-container">
-        <img class="card-movie__img" src="https://image.tmdb.org/t/p/w500{{poster_path}}" alt="{{title}}" width="275px"
-          height="400px">
+        <img class="card-movie__img" src="https://image.tmdb.org/t/p/w500{{poster_path}}" alt="{{title}}" >
       </div>
       <div>
         <h3 class="card-movie__title">{{title}}{{name}}</h3>
@@ -15,5 +14,5 @@
         </div>
       </div>
     </div>
-  {{/each}}
 </li>
+  {{/each}}
