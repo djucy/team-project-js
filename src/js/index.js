@@ -87,3 +87,17 @@ function onSliceNumber(release) {
 // console.log(api.fetchGenres(element).then(console.log))
 // api.fetchGenres(element).then();
 // });
+
+// })
+
+// onRemoveGemres()
+
+// function onRemoveGemres() {
+  
+// }
+
+
+// function onComparingArrayAndObject() {
+  
+//  }
+// });
