@@ -37,23 +37,23 @@
 // }
 
 
-// //Заменяет значение жанра на строку с именем жанра
-// // const genreIds = data.map(el => el.genre_ids);
-// // console.log(genreIds)
-// // const comparison = genreIds.forEach(element => {
-// // console.log(api.fetchGenres(element).then(console.log))
-// // api.fetchGenres(element).then();
-// // });
-// // })
+//Заменяет значение жанра на строку с именем жанра
+// const genreIds = data.map(el => el.genre_ids);
+// console.log(genreIds)
+// const comparison = genreIds.forEach(element => {
+// console.log(api.fetchGenres(element).then(console.log))
+// api.fetchGenres(element).then();
+// });
+// })
 
-// // onRemoveGemres()
+// onRemoveGemres()
 
-// // function onRemoveGemres() {
+// function onRemoveGemres() {
   
-// // }
+// }
 
 
-// // function onComparingArrayAndObject() {
+// function onComparingArrayAndObject() {
   
-// //  }
+//  }
 // }

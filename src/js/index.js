@@ -32,10 +32,8 @@ function onRatingFixedNumber(data) {
 
 //добавляет к одинарному символу знак после запятой
 function onFixedNumber(qval) {
-  if (qval.toString().length === 1) {
-    return '.0'.padStart(3, qval);
-  }
-  return qval;
+    qval = qval.toFixed(1)
+    return qval;
 }
 
 //Разметка карточек по запросу на бэк

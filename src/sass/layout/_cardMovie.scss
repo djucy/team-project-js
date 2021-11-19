@@ -30,9 +30,11 @@
 }
 
 .card-movie__imbd {
-  margin-left: 10px;
   padding: 0 6px;
   border-radius: 5px;
   background-color: #ff6b08;
   color: #ffffff;
+  &--card {
+    margin-left: 10px;
+  }
 }
