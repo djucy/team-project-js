@@ -1,0 +1,7 @@
+<svg aria-hidden="true" style="position:absolute;width:0;height:0;overflow:hidden" xmlns="http://www.w3.org/2000/svg">
+    <defs>
+        <symbol id="icon-close" viewBox="0 0 32 32">
+            <path fill="none" stroke="#fff" style="stroke:var(--color1, #fff)" stroke-width="1.454" d="m7.273 7.273 17.455 17.455M7.273 24.727 24.728 7.272"/>
+        </symbol>
+    </defs>
+</svg>

@@ -7,10 +7,10 @@
 @import './common/base';
 @import './common/common';
 @import './common/container';
-
-@import './common/headerHome';
-@import './common/headerLibrary';
 @import './layout/cardMovie';
 @import './layout/modal-team';
+@import './common/home';
 
 @import './layout/footer.scss';
+@import './layout/_modalMovie.scss';
+@import './layout/header-detailes';
