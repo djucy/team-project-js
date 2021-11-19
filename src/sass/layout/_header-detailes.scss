@@ -1,15 +1,18 @@
 .header-detailes__bkgrd {
+  height: 230px;
   padding-top: 41px;
   padding-bottom: 41px;
   @media screen and(min-width:1024px) {
-    background-image: url(../img/header-detailes/header-detailes@1x.jpg);
+    background-image: linear-gradient(to right, rgba(0, 0, 0, 0.56), rgba(0, 0, 0, 0.56)),
+      url(../img/header-detailes/header-detailes@1x.jpg);
     background-repeat: no-repeat;
     background-position: center;
     @media (min-device-pixel-ratio: 2),
       (-webkit-min-device-pixel-ratio: 2),
       (min-resolution: 192dpi),
       (min-resolution: 2dppx) {
-      background-image: url(../img/header-detailes/header-detailex@2x.jpg);
+      background-image: linear-gradient(to right, rgba(0, 0, 0, 0.56), rgba(0, 0, 0, 0.56)),
+        url(../img/header-detailes/header-detailes@2x.jpg);
     }
   }
 }
