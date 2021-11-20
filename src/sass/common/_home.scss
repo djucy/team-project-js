@@ -32,9 +32,7 @@ p {
     background-image: linear-gradient(rgba(0, 0, 0, 0.56), rgba(0, 0, 0, 0.56)),
       url(../imagesHeader/galery-tablet.jpg);
   }
-  .logo__text {
-    display: flex;
-  }
+ 
 }
 
 @media screen and (min-width: 1023px) {
@@ -106,6 +104,11 @@ p {
   align-items: center;
 }
 
+@media screen and (min-width: 768px){
+  .logo__text {
+    display: flex;
+  }
+}
 .nav {
   display: inline-flex;
 
