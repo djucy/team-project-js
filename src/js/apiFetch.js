@@ -30,11 +30,11 @@ export default class Api {
 
 //запрос данных для поиска фильмов поключевому слову
   async fetchSearch() {
-    const response = await fetch(`${BASE_URL}/3/search/movie?api_key=${MY_KEY}&language=${this.language}&query=${this.searchQuery}&page=${this.page}&include_adult=false`);
+    const response = await fetch(`${BASE_URL}/3/search/movie?api_key=${MY_KEY}&language=${this.language}&query=${qwery}&page=${this.page}&include_adult=false`);
     const data = await response.json();
     // data.total_pages += 1;
     // console.log()
-    // return data.results;
+    return data.results;
   }
     resetPageNumber() {
     this.pageNumber = 1;

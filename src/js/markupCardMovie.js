@@ -51,9 +51,9 @@ function onComparingArrayAndObject(arr, obj) {
 api
   .fetchMovie()
   .then(data => {
-    // onRatingFixedNumber(data);
-    // onFilmReleaseYear(data);
-    // onRemoveGenres(data);
+    onRatingFixedNumber(data);
+    onFilmReleaseYear(data);
+    onRemoveGenres(data);
     refs.cardList.insertAdjacentHTML('beforeend', createCardMovies(data));
   })
   .catch(onError);
