@@ -199,13 +199,14 @@ p {
 }
 
 .placeholder {
-  background-color: rgba(0, 0, 0, 0.56);
+  background-color: transparent;
   width: 280px;
   height: 20px;
   font-size: 14px;
   color: #ffffff;
   padding-bottom: 4px;
-  border-bottom-color: rgba(255, 255, 255, 1);
+  border-bottom-color: 0.5px solid rgba(255, 255, 255, 1);
+
   border-top: none;
   border-left: none;
   border-right: none;
@@ -220,9 +221,6 @@ p {
 }
 ::placeholder {
   color: #ffffff;
-}
-textarea::content {
-  color: #2196f3;
 }
 
 @media screen and (min-width: 768px) {
