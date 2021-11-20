@@ -1,22 +1,26 @@
 import createCardMovies from '../templates/cardMovie.hbs';
 import Api from './apiFetch';
 
-//==============Карточка фильма============================
 
 const refs = {
   cardList: document.querySelector('.cards-movie-list'),
+  searchForm: document.querySelector('.js-movies-search'),
+  cardsMovieList: document.querySelector('.js-cards-movie-list'),
 };
 
 const api = new Api();
 
-// export default class MarkupCardMovie { }
+//==============Карточка фильма============================
 
 // запрос данных для жанров (возвращает массив объектов с свойствами жанров)
-api.fetchGenres().then(genres => {
-  genres.forEach(el => {
-    genresArrayStr.push(el);
+api.fetchGenres()
+  .then(genres => {
+    genres.forEach(el => {
+      genresArrayStr.push(el);
+    })
+  
   })
-});
+  .catch(onError);
 
 const genresArrayStr = []
 
@@ -44,12 +48,14 @@ function onComparingArrayAndObject(arr, obj) {
 }
 
 //Разметка карточек фильмов по запросу на бэк
-api.fetchMovie().then(data => {
-  onRatingFixedNumber(data);
-  onFilmReleaseYear(data);
-  onRemoveGenres(data); 
-  refs.cardList.insertAdjacentHTML('beforeend', createCardMovies(data));
-});
+api.fetchMovie()
+  .then(data => {
+    onRatingFixedNumber(data);
+    onFilmReleaseYear(data);
+    onRemoveGenres(data);
+    refs.cardList.insertAdjacentHTML('beforeend', createCardMovies(data));
+  })
+  .catch(onError);
 
 // перезаписывает значение рейтинга с числом после запятой
 function onRatingFixedNumber(data) {
@@ -77,4 +83,48 @@ function onSliceNumber(release) {
   return release.slice(0, 4);
 }
 
-//========================================================
+function onError() {
+  return console.log('Search result not successful. Enter the correct movie name and')
+}
+
+//==============Поиск фильма============================
+
+api.fetchSearch()
+  .then(data => {
+    // data.forEach(el => console.log(el.title))
+    // onRatingFixedNumber(data);
+    // onFilmReleaseYear(data);
+    // onRemoveGenres(data);
+
+    refs.cardList.insertAdjacentHTML('beforeend', createCardMovies(data));
+    refs.searchForm.addEventListener('change', onSearchMovies)
+    // console.log()
+  })
+  .catch(onError);
+
+
+function onSearchMovies(evt) {
+  evt.preventDefault();
+  api.query = evt.target.value;
+  // console.log(api.searchQuery)
+
+}
+//   refs.searchForm.addEventListener('input', onSearchMovies)
+  
+// function onSearchMovies(evt) {
+//   evt.preventDefault();
+//   resetCardMarkup();
+//   console.log(api.query)
+//   api.query = evt.target.elements.query.value;
+//   console.log(api.query)
+//   api.fetchSearch().then(data => {
+//     refs.cardList.insertAdjacentHTML('beforeend', createCardMovies(data));
+//   })
+// }
+
+// function resetCardMarkup() {
+//   refs.cardsMovieList.innerHTML = '';
+//   api.resetPageNumber();
+// }
+
+
