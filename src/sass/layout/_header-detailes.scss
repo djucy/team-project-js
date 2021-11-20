@@ -4,16 +4,21 @@
   align-items: center;
 }
 .header-detailes__bkgrd {
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+
   height: 230px;
   padding-top: 37px;
   padding-bottom: 37px;
   @media screen and(min-width:1024px) {
     background-image: linear-gradient(to right, rgba(0, 0, 0, 0.56), rgba(0, 0, 0, 0.56)),
       url(../img/header-detailes/header-detailes@1x.jpg);
+    max-width: 1024px;
+    padding-left: 71px;
+    padding-right: 71px;
     background-repeat: no-repeat;
     background-position: center;
-    background-size: contain;
-    background-color: black;
     @media (min-device-pixel-ratio: 2),
       (-webkit-min-device-pixel-ratio: 2),
       (min-resolution: 192dpi),
@@ -23,6 +28,24 @@
     }
   }
 }
+
+//контейнер для мобильной версии
+// @media screen and (min-width: 320px) and (max-width: 767px) {
+//   .container {
+//     max-width: 320px;
+//     padding-left: 20px;
+//     padding-right: 20px;
+//   }
+// }
+// //контейнер для планшета
+// @media screen and (min-width: 768px) and (max-width: 1023px) {
+//   .container {
+//     max-width: 768px;
+//     padding-left: 76px;
+//     padding-right: 76px;
+//   }
+// }
+
 .btn-detailes__close {
   padding: 0;
   background-color: transparent;
