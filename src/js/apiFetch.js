@@ -22,6 +22,7 @@ export default class Api {
   async fetchGenres() {
     const response = await fetch(`https://api.themoviedb.org/3/genre/movie/list?api_key=${MY_KEY}&language=en-US`);
     const data = await response.json();
+    // console.log(data.genres)
     return data.genres;
   }
 }
