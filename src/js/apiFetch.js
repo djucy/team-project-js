@@ -34,7 +34,7 @@ export default class Api {
     const data = await response.json();
     // data.total_pages += 1;
     // console.log()
-    return data.results;
+    // return data.results;
   }
     resetPageNumber() {
     this.pageNumber = 1;
