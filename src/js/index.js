@@ -11,43 +11,15 @@ const refs = {
 };
 
 const api = new Api();
-const genresArrayStr = [
-  { id: 28, name: ' Action' },
-  {id: 12, name: ' Adventure'},
-  {id: 16, name: ' Animation'},
-  {id: 35, name: ' Comedy'},
-  {id: 80, name: ' Crime'},
-  {id: 99, name: ' Documentary'},
-  {id: 18, name: ' Drama'},
-  {id: 10751, name: ' Family'},
-  {id: 14, name: ' Fantasy'},
-  {id: 36, name: ' History'},
-  {id: 27, name: ' Horror'},
-  {id: 10402, name: ' Music'},
-  {id: 9648, name: ' Mystery'},
-  {id: 10749, name: ' Romance'},
-  {id: 878, name: ' Science Fiction'},
-  {id: 10770, name: 'TV Movie'},
-  {id: 53, name: ' Thriller'},
-  {id: 10752, name: ' War'},
-  { id: 37, name: ' Western' },
-];
-// console.log(genresArrayStr)
-
-//Разметка карточек фильмов по запросу на бэк
-api.fetchMovie().then(data => {
-  onRatingFixedNumber(data);
-  onFilmReleaseYear(data);
-  onRemoveGenres(data); //Поменять названия функций!!!
-  refs.cardList.insertAdjacentHTML('beforeend', createCardMovies(data));
-});
 
 // запрос данных для жанров (возвращает массив объектов с свойствами жанров)
-// api.fetchGenres().then(genres => {
-//   genres.forEach(el => {
-//     genresArrayStr.push(el);
-//   })
-// });
+api.fetchGenres().then(genres => {
+  genres.forEach(el => {
+    genresArrayStr.push(el);
+  })
+});
+
+const genresArrayStr = []
 
 // Заменяет значение жанра на строку с именем жанра
 function onRemoveGenres(data) {
@@ -59,7 +31,7 @@ function onRemoveGenres(data) {
 
 //итерация числового массива по значению свойства (id) объекта 
 function onComparingArrayAndObject(arr, obj) {
-  let genresStr = [];
+  let genresStr = []
   arr.forEach(el => {
     const values = Object.values(obj);
     values.forEach(value => {
@@ -71,6 +43,14 @@ function onComparingArrayAndObject(arr, obj) {
   })
   return genresStr;
 }
+
+//Разметка карточек фильмов по запросу на бэк
+api.fetchMovie().then(data => {
+  onRatingFixedNumber(data);
+  onFilmReleaseYear(data);
+  onRemoveGenres(data); 
+  refs.cardList.insertAdjacentHTML('beforeend', createCardMovies(data));
+});
 
 // перезаписывает значение рейтинга с числом после запятой
 function onRatingFixedNumber(data) {
@@ -97,19 +77,5 @@ function onSliceNumber(release) {
   }
   return release.slice(0, 4);
 }
-
-
-
-// onRemoveGenres()
-
-// function onRemoveGenres() {
-  
-// }
-
-
-// function onComparingArrayAndObject() {
-  
-//  }
-// });
 
 //========================================================
