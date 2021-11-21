@@ -55,6 +55,7 @@ api
     onRatingFixedNumber(data);
     onFilmReleaseYear(data);
     onRemoveGenres(data);
+    modalMovie();
     refs.cardList.insertAdjacentHTML('beforeend', createCardMovies(data));
   })
   .catch(onError);
