@@ -1,5 +1,7 @@
+import cardMovieModal from '../templates/card_movie_modal.hbs';
+
 export default function modalMovie() {
-    const dataSource = [];
+    // const dataSource = [];
   
   const refs = {
     movieCards: document.querySelector('.js-cards-movie-list'),
@@ -7,6 +9,7 @@ export default function modalMovie() {
     backdropOverlay: document.querySelector('.lightbox__overlay'),
     movieContent: document.querySelector('.lightbox__content'),
     closeModal: document.querySelector('[data-action="close-lightbox"]'),
+    createCardMovie: document.querySelector('.card_modal')
   }
 
   refs.movieModal.addEventListener('click', onModalClick);
@@ -49,3 +52,12 @@ function onModalClick(evt) {
       }
     })
   }
+
+
+  // function markupOutput(markup) {
+  //   refs.outputCountry.innerHTML = '';
+  //   if (markup) refs.outputCountry.insertAdjacentHTML('afterbegin', markup);
+  //   return;
+  // }
+
+  

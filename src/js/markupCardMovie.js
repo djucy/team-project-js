@@ -134,3 +134,6 @@ refs.searchForm.addEventListener('submit', onSearchMovies);
 //   refs.cardsMovieList.innerHTML = '';
 //   api.resetPageNumber();
 // }
+
+api.fetchMovie()
+  .then(data => console.log(data))
