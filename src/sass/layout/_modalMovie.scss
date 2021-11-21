@@ -1,185 +1,202 @@
 .card_modal {
-    font-family: Roboto;
-    font-style: normal;
-    font-weight: 500;
-    display: flex;
-    padding-left: 30px;
-    padding-right: 30px;
-    padding-bottom: 40px;
-    padding-top: 50px;
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: 500;
+  display: flex;
+  padding-left: 30px;
+  padding-right: 30px;
+  padding-bottom: 40px;
+  padding-top: 50px;
 
-    margin-left: auto;
-    margin-right: auto;
+  margin-left: auto;
+  margin-right: auto;
 
-    @media screen and (min-width: 1024px) {
-        width: 882px;
-    }
+  @media screen and (min-width: 1024px) {
+    width: 882px;
+  }
 
-    @media screen and (min-width: 768px) and (max-width: 1023px) {
-        width: 618px;
-    }  
-    
-    @media screen and (min-width: 320px) and (max-width: 767px) {
-        min-width: 280px;
-        display: block;
-        padding-left: 20px;
-        padding-right: 20px;
-    }    
+  @media screen and (min-width: 768px) and (max-width: 1023px) {
+    width: 618px;
+  }
+
+  @media screen and (min-width: 320px) and (max-width: 767px) {
+    min-width: 280px;
+    display: block;
+    padding-left: 20px;
+    padding-right: 20px;
+  }
 }
 
 .img_movie {
-    // margin-left: auto;
-    // margin-right: auto;
-    @media screen and (min-width: 1024px) {
-       min-width: 396px;
-        }
-    
-        @media screen and (min-width: 768px) and (max-width: 1023px) {
-            min-width: 264px;
-        }  
-        
-        @media screen and (min-width: 320px) and (max-width: 767px) {
-            width: 240px;
-        }   
+  // margin-left: auto;
+  // margin-right: auto;
+  @media screen and (min-width: 1024px) {
+    min-width: 396px;
+  }
+
+  @media screen and (min-width: 768px) and (max-width: 1023px) {
+    min-width: 264px;
+  }
+
+  @media screen and (min-width: 320px) and (max-width: 767px) {
+    width: 240px;
+  }
 }
 
 .about_movie {
-    margin-left: 30px;
+  margin-left: 30px;
+
+  @media screen and (min-width: 320px) and (max-width: 767px) {
+    margin-top: 30px;
+    margin-left: 0;
+  }
+
+  &__title {
+    font-size: 30px;
+    line-height: 35px;
+    margin-bottom: 20px;
+
+    @media screen and (min-width: 768px) and (max-width: 1023px) {
+      font-size: 20px;
+      line-height: 1.15;
+    }
+    @media screen and (min-width: 320px) and (max-width: 767px) {
+      font-size: 20px;
+      line-height: 1.15;
+    }
+  }
+
+  &__table {
+    font-size: 12px;
+    line-height: 1.33;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    text-align: left;
+
+    @media screen and (min-width: 1024px) {
+      width: 100%;
+    }
+  }
+
+  &__text {
+    font-size: 12px;
+    line-height: 1.67;
+    margin-bottom: 20px;
+    margin-top: 10px;
+
+    @media screen and (min-width: 768px) and (max-width: 1023px) {
+      min-width: 264px;
+    }
 
     @media screen and (min-width: 320px) and (max-width: 767px) {
-        margin-top: 30px;
-        margin-left: 0;
+      width: 240px;
     }
+  }
 
-    &__title {
-        font-size: 30px;
-        line-height: 35px; 
-        margin-bottom: 20px;
+  &__item {
+    height: 25px;
+  }
 
-        @media screen and (min-width: 768px) and (max-width: 1023px) {
-            font-size: 20px;
-            line-height: 1.15;
-        } 
-        @media screen and (min-width: 320px) and (max-width: 767px) {
-            font-size: 20px;
-            line-height: 1.15;
-        }
-    
-    }
-
-    &__table {
-        font-size: 12px;
-        line-height: 1.33;
-        margin-top: 20px;
-        margin-bottom: 20px;
-        text-align: left;
-
-        @media screen and (min-width: 1024px) {
-            width: 100%;
-             }
-    }
-
-    &__text {
-        font-size: 12px;
-        line-height: 1.67;
-        margin-bottom: 20px;
-        margin-top: 10px;
-
-        @media screen and (min-width: 768px) and (max-width: 1023px) {
-            min-width: 264px;
-        }  
-        
-        @media screen and (min-width: 320px) and (max-width: 767px) {
-            width: 240px;
-        }   
-
-    }
-
-    &__item {
-        height: 25px;
-    }
-
-    &__type {
-        color: #8C8C8C;
-    }
+  &__type {
+    color: #8c8c8c;
+  }
 }
 
 .button-queue-modal {
-    background-color: #fff;
-    color: #000;
-    border: 1px solid #000000;
-    line-height: 1.33;
-    font-weight: 500;
-    text-transform: uppercase;
-    @media screen and (min-width: 320px) and (max-width: 767px) {
-        width: 112px;
-        height: 44px;
-        padding-left: 8px;
-        padding-right: 8px;
-    }
+  background-color: #fff;
+  color: #000;
+  border: 1px solid #000000;
+  line-height: 1.33;
+  font-weight: 500;
+  text-transform: uppercase;
+  @media screen and (min-width: 320px) and (max-width: 767px) {
+    width: 112px;
+    height: 44px;
+    padding-left: 8px;
+    padding-right: 8px;
+  }
 }
 
 .button-watched-modal {
-    text-transform: uppercase;
-    font-weight: 500;
-    @media screen and (min-width: 320px) and (max-width: 767px) {
-        width: 112px;
-        height: 44px;
-        padding-left: 7px;
-        padding-right: 7px;
-        margin-right: 14px;
-    }
+  text-transform: uppercase;
+  font-weight: 500;
+  @media screen and (min-width: 320px) and (max-width: 767px) {
+    width: 112px;
+    height: 44px;
+    padding-left: 7px;
+    padding-right: 7px;
+    margin-right: 14px;
+  }
 }
 
 .modal-button {
-    display: flex;
+  display: flex;
 }
 
 .rating {
-    width: 36px;
-    height: 16px;
-    padding: 1px 9px 1px 10px;
-    background-color: #FF6B01;
-    color: #ffffff;
-    filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
-    border-radius: 5px;
+  width: 36px;
+  height: 16px;
+  padding: 1px 9px 1px 10px;
+  background-color: #ff6b01;
+  color: #ffffff;
+  filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+  border-radius: 5px;
 }
 
 .votes {
-    width: 36px;
-    height: 16px;
-    background-color: #F7F7F7;
-    border-radius: 5px;
-    padding: 1px 4px 1px 4px;
+  width: 36px;
+  height: 16px;
+  background-color: #f7f7f7;
+  border-radius: 5px;
+  padding: 1px 4px 1px 4px;
 }
 
 // кнопка закрытия модалки
 
 .close-modal {
-    position: absolute;
-    top: 10px;
-    right: 10px;
-    display: flex;
-    width: 30px;
-    height: 30px;
-    padding: 0;
-    margin: 0;
-    border: none;
-    background-color: transparent;
-    cursor: pointer;
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  display: flex;
+  width: 30px;
+  height: 30px;
+  padding: 0;
+  margin: 0;
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
 
-    &__cross {
-        fill: #000000;
-    }
+  &__cross {
+    fill: #000000;
   }
+}
 
 //   модальное окно
 
-  .lightbox {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    position: fixed;
+.lightbox {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  opacity: 0;
+  transition: opacity 250ms cubic-bezier(0.4, 0, 0.2, 1);
+
+  &__content {
+    transform: scale(0.95);
+    background: #ffffff;
+
+    @media screen and (min-width: 320px) and (max-width: 767px) {
+      overflow: auto;
+      height: 90vh;
+    }
+  }
+
+  &__overlay {
+    position: absolute;
     top: 0;
     left: 0;
     width: 100vw;
@@ -187,30 +204,35 @@
     opacity: 0;
     transition: opacity 250ms cubic-bezier(0.4, 0, 0.2, 1);
     z-index: -5;
-    
-    &__content {
-        transform: scale(0.95);
-        background: #ffffff;
 
-        @media screen and (min-width: 320px) and (max-width: 767px) {
-            overflow: auto;
-            height: 90vh;
-        }
-    }   
-    
-    &__overlay {
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100vw;
-        height: 100vh;
-        background-color: rgba(0, 0, 0, 0.3);
+    &__content {
+      transform: scale(0.95);
+      background: #ffffff;
+
+      @media screen and (min-width: 320px) and (max-width: 767px) {
+        overflow: auto;
+        height: 90vh;
       }
-}
-  
+    }
+
+    &__overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      background-color: rgba(0, 0, 0, 0.3);
+    }
+  }
+
   .lightbox.is-open {
     opacity: 1;
     pointer-events: initial;
     z-index: 2;
   }
+}
 
+.lightbox.is-open {
+  opacity: 1;
+  pointer-events: initial;
+}
