@@ -1,5 +1,6 @@
 import createCardMovies from '../templates/cardMovie.hbs';
 import Api from './apiFetch';
+import modalMovie from './modalMovie';
 
 const refs = {
   cardList: document.querySelector('.cards-movie-list'),
