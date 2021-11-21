@@ -2,16 +2,16 @@ export default function modalMovie() {
     const dataSource = [];
   
   const refs = {
-    movieCards: document.querySelector('js-cards-movie-list'),
+    movieCards: document.querySelector('.js-cards-movie-list'),
     movieModal: document.querySelector('.lightbox'),
     backdropOverlay: document.querySelector('.lightbox__overlay'),
     movieContent: document.querySelector('.lightbox__content'),
     closeModal: document.querySelector('[data-action="close-lightbox"]'),
   }
 
-  movieCards.addEventListener('click', onPictureClick);
-  movieModal.addEventListener('click', onModalClick);
-  closeModal.addEventListener('click', onCloseModalClick);
+  refs.movieModal.addEventListener('click', onModalClick);
+  refs.movieCards.addEventListener('click', onPictureClick);
+  refs.closeModal.addEventListener('click', onCloseModalClick);
 
   // открытие модалки при клике на картинку из галереи фильмов
 
