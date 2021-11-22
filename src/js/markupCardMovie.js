@@ -1,13 +1,7 @@
 import createCardMovies from '../templates/cardMovie.hbs';
+import refs from './refs';
 import Api from './apiFetch';
 import modalMovie from './modalMovie';
-
-const refs = {
-  cardList: document.querySelector('.cards-movie-list'),
-  searchInput: document.querySelector('.placeholder'),
-  cardsMovieList: document.querySelector('.js-cards-movie-list'),
-  searchForm: document.querySelector('.js-movies-search'),
-};
 
 const api = new Api();
 
@@ -91,35 +85,50 @@ function onError() {
 }
 
 //==============Поиск фильма============================
+refs.searchForm.addEventListener('change', onSearchMovies);
 
-api
-  .fetchSearch()
-  .then(data => {
-    data.forEach(el => console.log(el.title));
+function onSearchMovies(e) {
+  e.preventDefault();
+  api.fetchSearch(e).then((data) => {
+    const evt = e.target.value;
+    // console.log(evt)
+    // data.forEach(el => console.log(el.title));
     onRatingFixedNumber(data);
     onFilmReleaseYear(data);
     onRemoveGenres(data);
-
-    refs.cardList.insertAdjacentHTML('beforeend', createCardMovies(data));
-    refs.searchForm.addEventListener('change', onSearchMovies);
-    // console.log()
+    // console.log(data)
+    refs.cardList.insertAdjacentHTML('afterbegin', createCardMovies(data));
   })
-  .catch(onError);
-
-function onSearchMovies(evt) {
-  evt.preventDefault();
-
-  console.dir(api.fetchSearch(refs.searchInput.value));
-  api.fetchSearch(refs.searchInput.value).then(data => {
-    console.log(data);
-    onRatingFixedNumber(data);
-    onFilmReleaseYear(data);
-    onRemoveGenres(data);
-    refs.cardList.insertAdjacentHTML('beforeend', createCardMovies(data));
-  });
 }
+// api
+//   .fetchSearch()
+//   .then(data => {
+//     data.forEach(el => console.log(el.title));
+//     onRatingFixedNumber(data);
+//     onFilmReleaseYear(data);
+//     onRemoveGenres(data);
 
-refs.searchForm.addEventListener('submit', onSearchMovies);
+//     refs.cardList.insertAdjacentHTML('beforeend', createCardMovies(data));
+//     refs.searchForm.addEventListener('change', onSearchMovies);
+//     // console.log()
+//   })
+//   .catch(onError);
+
+// function onSearchMovies(evt) {
+//   evt.preventDefault();
+//   api.query = evt.target.elements.query.value;
+//   console.dir(api.fetchSearch(refs.searchInput.value));
+//   api.fetchSearch(refs.searchInput.value).then(data => {
+//     console.log(data);
+//     onRatingFixedNumber(data);
+//     onFilmReleaseYear(data);
+//     onRemoveGenres(data);
+//     refs.cardList.insertAdjacentHTML('beforeend', createCardMovies(data));
+//   });
+// }
+
+// ===================================================
+// refs.searchForm.addEventListener('submit', onSearchMovies);
 
 // function onSearchMovies(evt) {
 //   evt.preventDefault();

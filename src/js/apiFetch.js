@@ -6,8 +6,9 @@ export default class Api {
   constructor() {
     this.searchQuery = '';
     this.page = 1;
-    this.language = 'ru-RU'
+    this.language = 'en-US';
     // 'en-US'
+    // 'ru-RU'
   }
   
 //запрос данных для фильмов (возвращает массив объектов с свойствами фильмов)
@@ -29,23 +30,23 @@ export default class Api {
   }
 
 //запрос данных для поиска фильмов поключевому слову
-  async fetchSearch() {
-    const response = await fetch(`${BASE_URL}/3/search/movie?api_key=${MY_KEY}&language=${this.language}&query=${qwery}&page=${this.page}&include_adult=false`);
+  async fetchSearch(e) {
+    this.searchQuery = e.target.value;
+    const response = await fetch(`${BASE_URL}/3/search/movie?api_key=${MY_KEY}&language=${this.language}&query=${this.searchQuery}&page=${this.page}&include_adult=false`);
     const data = await response.json();
-    // data.total_pages += 1;
-    // console.log()
+    // console.log(data.results);
     return data.results;
   }
-    resetPageNumber() {
-    this.pageNumber = 1;
-  }
-  get query() {
-    return this.searchQuery;
-  }
-  set query(newSearchQuery) {
-    // console.log(newSearchQuery)
-    this.searchQuery = newSearchQuery;
-    // console.log(this.searchQuery)
-  }
+  //   resetPageNumber() {
+  //   this.pageNumber = 1;
+  // }
+  // get query() {
+  //   return this.searchQuery;
+  // }
+  // set query(newSearchQuery) {
+  //   // console.log(newSearchQuery)
+  //   this.searchQuery = newSearchQuery;
+  //   // console.log(this.searchQuery)
+  // }
 }
 
