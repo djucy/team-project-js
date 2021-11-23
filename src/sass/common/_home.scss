@@ -238,6 +238,17 @@ p {
   width: 24px;
   height: 24px;
 }
+
+.search-form__button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 15px;
+  height: 15px;
+  background-color: #ffffff00;
+  border-style: none;
+}
+
 .icon__search {
   position: absolute;
   left: 95%;

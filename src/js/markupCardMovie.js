@@ -5,8 +5,10 @@ import modalMovie from './modalMovie';
 
 const api = new Api();
 
-//==============Карточка фильма============================
+refs.searchForm.addEventListener('submit', onSearchMovies);
+refs.loadMoreBtn.addEventListener('click', onLoadMore);
 
+//==============Карточка фильма============================
 // запрос данных для жанров (возвращает массив объектов с свойствами жанров)
 api
   .fetchGenres()
@@ -42,15 +44,10 @@ function onComparingArrayAndObject(arr, obj) {
   return genresStr;
 }
 
-//Разметка карточек фильмов по запросу на бэк
-api
-  .fetchMovie()
+// Разметка карточек фильмов по запросу на бэк
+api.fetchMovie()
   .then(data => {
-    onRatingFixedNumber(data);
-    onFilmReleaseYear(data);
-    onRemoveGenres(data);
-    modalMovie();
-    refs.cardList.insertAdjacentHTML('beforeend', createCardMovies(data));
+    onCreateMarkup(data);
   })
   .catch(onError);
 
@@ -84,50 +81,68 @@ function onError() {
   return console.log('Search result not successful. Enter the correct movie name and');
 }
 
+// function onCardImage() {
+//   if (poster_path === null) {
+//     poster_path = unnamed_min.png
+//   }
+// }
+
+function normalRatingYearGenres(data) {
+  onRatingFixedNumber(data.results);
+  onFilmReleaseYear(data.results);
+  onRemoveGenres(data.results);
+}
+
+function onCreateMarkup(data) {
+  normalRatingYearGenres(data)
+  refs.cardsMovieList.insertAdjacentHTML('afterbegin', createCardMovies(data.results));
+}
+
 //==============Поиск фильма============================
-refs.searchForm.addEventListener('change', onSearchMovies);
 
 function onSearchMovies(e) {
   e.preventDefault();
-  api.fetchSearch(e).then((data) => {
-    const evt = e.target.value;
-    // console.log(evt)
-    // data.forEach(el => console.log(el.title));
-    onRatingFixedNumber(data);
-    onFilmReleaseYear(data);
-    onRemoveGenres(data);
-    // console.log(data)
-    refs.cardList.insertAdjacentHTML('afterbegin', createCardMovies(data));
-  })
+  api.query = e.currentTarget.elements.query.value;
+  resetMarkup();
+  api.fetchSearch(e)
+    .then((data) => {
+      onCreateMarkup(data);
+    })
+    .catch(onError);
 }
-// api
-//   .fetchSearch()
-//   .then(data => {
-//     data.forEach(el => console.log(el.title));
-//     onRatingFixedNumber(data);
-//     onFilmReleaseYear(data);
-//     onRemoveGenres(data);
 
-//     refs.cardList.insertAdjacentHTML('beforeend', createCardMovies(data));
-//     refs.searchForm.addEventListener('change', onSearchMovies);
-//     // console.log()
-//   })
-//   .catch(onError);
+function resetMarkup() {
+  refs.cardsMovieList.innerHTML = '';
+  api.resetPageNumber();
+}
 
-// function onSearchMovies(evt) {
-//   evt.preventDefault();
-//   api.query = evt.target.elements.query.value;
-//   console.dir(api.fetchSearch(refs.searchInput.value));
-//   api.fetchSearch(refs.searchInput.value).then(data => {
-//     console.log(data);
-//     onRatingFixedNumber(data);
-//     onFilmReleaseYear(data);
-//     onRemoveGenres(data);
-//     refs.cardList.insertAdjacentHTML('beforeend', createCardMovies(data));
+// ===================================================
+// Подгрузка страниц
+function onLoadMore() {
+  api.fetchSearch()
+    .then(data => {
+        return refs.cardsMovieList.insertAdjacentHTML('beforeend', createCardMovies(data.results))
+    })
+    .catch(onError)
+//  onScroll();
+}
+
+// function onScroll() {
+//   refs.loadMoreBtn.scrollIntoView({
+//     behavior: 'smooth',
+//     block: 'end',
 //   });
 // }
 
+// document.addEventListener('scroll', () => {
+//     const documentRect = document.documentElement.getBoundingClientRect();
+//     if (documentRect.bottom < document.documentElement.clientHeight + 300) {
+//         onLoadMore();
+//     }
+// })
+
 // ===================================================
+
 // refs.searchForm.addEventListener('submit', onSearchMovies);
 
 // function onSearchMovies(evt) {
