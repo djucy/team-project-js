@@ -15,38 +15,35 @@ export default class Api {
   async fetchMovie() {
     const response = await fetch(`${BASE_URL}/3/trending/all/day?api_key=${MY_KEY}&language=${this.language}`);
     const data = await response.json();
-    // console.log(data.results)
-    // console.log(data.total_pages)
-    // console.log(data.total_results)
-    // this.page += 1;
-    return data.results;
+    return data;
   }
-
-//запрос данных для жанров (возвращает массив объектов с свойствами жанров)
+  
+  //запрос данных для жанров (возвращает массив объектов с свойствами жанров)
   async fetchGenres() {
     const response = await fetch(`${BASE_URL}/3/genre/movie/list?api_key=${MY_KEY}&language=${this.language}`);
     const data = await response.json();
     return data.genres;
   }
-
-//запрос данных для поиска фильмов поключевому слову
-  async fetchSearch(e) {
-    this.searchQuery = e.target.value;
+  
+  //запрос данных для поиска фильмов поключевому слову
+  async fetchSearch() {
     const response = await fetch(`${BASE_URL}/3/search/movie?api_key=${MY_KEY}&language=${this.language}&query=${this.searchQuery}&page=${this.page}&include_adult=false`);
+    this.page += 1;
     const data = await response.json();
-    // console.log(data.results);
-    return data.results;
+    // console.log(data)
+    return data;
   }
-  //   resetPageNumber() {
-  //   this.pageNumber = 1;
-  // }
-  // get query() {
-  //   return this.searchQuery;
-  // }
-  // set query(newSearchQuery) {
-  //   // console.log(newSearchQuery)
-  //   this.searchQuery = newSearchQuery;
-  //   // console.log(this.searchQuery)
-  // }
+
+    resetPageNumber() {
+    this.pageNumber = 1;
+  }
+  get query() {
+    return this.searchQuery;
+  }
+  set query(newSearchQuery) {
+    // console.log(newSearchQuery)
+    this.searchQuery = newSearchQuery;
+    // console.log(this.searchQuery)
+  }
 }
 
