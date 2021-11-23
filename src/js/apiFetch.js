@@ -28,9 +28,9 @@ export default class Api {
   //запрос данных для поиска фильмов поключевому слову
   async fetchSearch() {
     const response = await fetch(`${BASE_URL}/3/search/movie?api_key=${MY_KEY}&language=${this.language}&query=${this.searchQuery}&page=${this.page}&include_adult=false`);
-    this.page += 1;
     const data = await response.json();
     // console.log(data)
+    this.page += 1;
     return data;
   }
 
