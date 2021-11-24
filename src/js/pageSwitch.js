@@ -1,18 +1,18 @@
 import Api from './apiFetch';
 import onError from './markupCardMovie';
-// import createCardMovies from '../templates/cardMovie.hbs';
-import markupCardMovie from './markupCardMovie';
-import onCreateMarkup from './markupCardMovie';
-import fetchMovie from './apiFetch';
+import createCardMovies from '../templates/cardMovie.hbs';
+// import onCreateMarkup from './markupCardMovie';
+// import fetchMovie from './apiFetch';
 import MY_KEY from './apiFetch';
 import BASE_URL from './apiFetch';
 import refs from './refs';
 
 
-const api = new Api();
+const apiHome = new Api();
 
 refs.libraryLink.addEventListener('click', onLibraryDraw);
 refs.libraryHomeLink.addEventListener('click', onHomeDraw);
+// refs.homeLink.addEventListener('click', resetMarkup);
 
 // Отрисовка библиотеки, пока она пустая
 function onLibraryDraw() {
@@ -27,18 +27,21 @@ function onLibraryDraw() {
   function  onHomeDraw() {
   refs.homeHeader.classList.remove('header-hidden');
     refs.libraryHeader.classList.add('header-hidden');
+    refs.cardsMovieList.innerHTML = '';
     fetchHomePage();
 }
 
+import { onCreateMarkup, onRatingFixedNumber } from './markupCardMovie';
+  
 function fetchHomePage() {
-  api.fetchMovie()
+  apiHome.fetchMovie()
   .then(data => {
     onCreateMarkup(data);
     console.log(data);
   })
     .catch(onError);
   
-  api
+  apiHome
   .fetchGenres()
   .then(genres => {
     genres.forEach(el => {

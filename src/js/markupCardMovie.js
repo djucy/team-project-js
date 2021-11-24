@@ -3,6 +3,8 @@ import refs from './refs';
 import Api from './apiFetch';
 import modalMovie from './modalMovie';
 
+export {onCreateMarkup, onRatingFixedNumber};
+
 const api = new Api();
 
 refs.searchForm.addEventListener('submit', onSearchMovies);
