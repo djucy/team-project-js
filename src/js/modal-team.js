@@ -1,6 +1,3 @@
-console.log('modalteam js');
-
-console.log('mymodal');
 (() => {
   const refs = {
     openModalBtn: document.querySelector('[data-modal-open]'),
@@ -12,6 +9,6 @@ console.log('mymodal');
   refs.closeModalBtn.addEventListener('click', toggleModal);
 
   function toggleModal() {
-    refs.modal.classList.toggle('is-hidden');
+    refs.modal.classList.toggle('visually-hidden');
   }
 })();

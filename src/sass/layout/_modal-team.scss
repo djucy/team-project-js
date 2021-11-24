@@ -3,8 +3,22 @@
   background-color: inherit;
 }
 
+.btn-team-close {
+  margin-left: 500px;
+}
+
+.container-team {
+  width: 882px;
+  height: 568px;
+  position: absolute;
+  top: 30%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
 .backdrop-team {
-  // position: fixed;
+  position: fixed;
+  top: 0;
 
   overflow-y: auto;
   width: 100%;
@@ -16,13 +30,11 @@
   margin: 0;
 }
 
-.team-modal-header {
-  // width: 618px;
-  // height: 562px;
+.team-modal-header.header-detailes__bkgrd {
+  min-height: 150px;
+}
 
-  // position: absolute;
-  // top: 50%;
-  // left: 50%;
+.team-modal-header {
   margin: 0;
 }
 
@@ -45,14 +57,13 @@
 
 .team-list__item {
   padding: 15px;
+  display: inline-block;
 }
 
 .team-modal-header {
-  display: flex;
-  align-items: center;
+  // display: flex;
+  // align-items: center;
 
-  min-height: 230px;
-  height: 40px;
   background-color: black;
 
   background-image: linear-gradient(to right, rgba(0, 0, 0, 0.56), rgba(0, 0, 0, 0.56)),
@@ -65,10 +76,12 @@
 
 .header-team__position {
   display: flex;
+  justify-content: space-between;
 }
 
 .popup {
-  display: flex;
+  min-width: 100%;
+  // display: flex;
   justify-content: center;
 }
 
@@ -104,8 +117,37 @@
   margin-top: 0;
 }
 
+.team-list {
+  padding: 0;
+}
+
 .btn-team-close {
   cursor: pointer;
+}
+
+img.team-list__img {
+  margin: 0px 0px;
+  display: inline-block;
+  max-width: 100%;
+  height: auto;
+  background-color: red;
+  vertical-align: top;
+
+  @media screen and (min-width: 1024px) {
+    min-width: 200px;
+  }
+
+  @media screen and (min-width: 768px) and (max-width: 1023px) {
+    min-width: 160px;
+  }
+
+  @media screen and (min-width: 320px) and (max-width: 767px) {
+    width: 120px;
+  }
+}
+
+.imgs-wrapper {
+  display: inline-block;
 }
 
 .team-list__item-name {
@@ -124,4 +166,16 @@
   font-weight: 500;
   font-size: 12px;
   line-height: 16px;
+}
+
+.first-team-list,
+.third-team-list {
+  margin-left: 90px;
+}
+
+.second-team-list {
+  margin-left: 210px;
+}
+.second-team-list__item:first-child {
+  margin-right: 10px;
 }
