@@ -7,6 +7,7 @@ const refs = {
   libraryHomeLink: document.querySelector('.library-home__link'),
 };
 
+
 refs.libraryLink.addEventListener('click', onLibraryDraw);
 refs.libraryHomeLink.addEventListener('click', onHomeDraw);
 

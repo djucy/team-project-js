@@ -1,18 +1,33 @@
-  {{#each this}}
-<li class="card-list__item">
-    <div class="card-movie">
-      <div class="card-movie__img-container">
-        <img class="card-movie__img" src="https://image.tmdb.org/t/p/w500{{poster_path}}" alt="{{title}}" >
+{{#each this}}
+  <li class='card-list__item' data-overview='{{overview}}'
+  data-title='{{title}}'
+  data-name='{{name}}'
+  data-vote='{{vote_average}}'
+  data-popularity='{{popularity}}'
+  data-genre='{{genre-ids}}'
+  data-src='https://image.tmdb.org/t/p/w500{{poster_path}}'
+  data-votes ='{{vote_count}}'
+  >
+  
+    <div class='card-movie'>
+      <div class='card-movie__img-container'>
+        <img
+          class='card-movie__img'
+          src='https://image.tmdb.org/t/p/w500{{poster_path}}'
+          alt='{{title}}'
+        />
       </div>
       <div>
-        <h3 class="card-movie__title">{{title}}{{name}}</h3>
-        <div class="card-movie__text-container">
-          <p class="card-movie__genres">{{genre_ids}}</p>
-          <p class="card-movie__delimiter">|</p>
-          <p class="card-movie__year">{{release_date}}{{first_air_date}}</p>
-          <p class="card-movie__imbd card-movie__imbd--card">{{vote_average}}</p>
+        <h3 class='card-movie__title'>{{title}}{{name}}</h3>
+        <div class='card-movie__text-container'>
+          <p class='card-movie__genres'>{{genre_ids}}</p>
+          <p class='card-movie__delimiter'>|</p>
+          <p class='card-movie__year'>{{release_date}}{{first_air_date}}</p>
+          <p class='card-movie__imbd card-movie__imbd--card'>{{vote_average}}</p>
         </div>
       </div>
     </div>
-</li>
-  {{/each}}
+    
+
+
+{{/each}}

@@ -4,6 +4,9 @@
   font-weight: 500;
   font-size: 12px;
   line-height: 1.333;
+    background-color: $background-color-light;
+
+
 }
 
 .card-movie__img {
@@ -41,3 +44,23 @@
     margin-left: 10px;
   }
 }
+
+//контейнер для мобильной версии
+@media screen and (min-width: 320px) and (max-width: 767px) {
+  .main_container {
+    min-height: 58vh;
+  }
+}
+//контейнер для планшета
+@media screen and (min-width: 768px) and (max-width: 1023px) {
+  .main_container {
+    min-height: 69vh;
+  }
+}
+//контейнер фулл версии
+@media screen and (min-width: 1024px) {
+  .main_container {
+    min-height: 70vh;
+  }
+}
+
