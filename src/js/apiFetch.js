@@ -1,6 +1,6 @@
 const BASE_URL = 'https://api.themoviedb.org';
 const MY_KEY = '0b0ab544c51d0aec96512431b6d0c332';
-
+export {Api, BASE_URL, MY_KEY};
 export default class Api {
 
   constructor() {
@@ -13,7 +13,7 @@ export default class Api {
   
 //запрос данных для фильмов (возвращает массив объектов с свойствами фильмов)
   async fetchMovie() {
-    const response = await fetch(`${BASE_URL}/3/trending/all/day?api_key=${MY_KEY}&language=${this.language}`);
+    const response = await fetch(`${BASE_URL}/3/trending/all/day?api_key=${MY_KEY}&page=${this.page}&language=${this.language}`);
     const data = await response.json();
     return data;
   }

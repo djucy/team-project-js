@@ -2,8 +2,9 @@ import createCardMovies from '../templates/cardMovie.hbs';
 import refs from './refs';
 import Api from './apiFetch';
 import modalMovie from './modalMovie';
+import {createPagination} from './pagination';
 
-export {onCreateMarkup, onRatingFixedNumber};
+export {onCreateMarkup, onRatingFixedNumber, onError};
 
 const api = new Api();
 
@@ -100,6 +101,7 @@ function normalRatingYearGenres(data) {
 function onCreateMarkup(data) {
   normalRatingYearGenres(data);
   refs.cardsMovieList.insertAdjacentHTML('afterbegin', createCardMovies(data.results));
+  createPagination(data);
   return data.results;
 }
 
