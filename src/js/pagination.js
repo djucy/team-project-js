@@ -10,7 +10,7 @@ console.log(container);
 
 const options = {
     totalItems: 10,
-    itemsPerPage: 10,
+    itemsPerPage: 20,
     visiblePages: 7,
     page: 1,
     centerAlign: true,
