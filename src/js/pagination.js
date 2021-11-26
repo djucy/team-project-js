@@ -54,12 +54,12 @@ function  createPaginationTrending (result) {
 
 function  createPaginationSearch (result, inputValue) {
     options.totalItems = result.total_results;
-    const pagination = new Pagination(container, options);
     options.page = 1;
+    const pagination = new Pagination(container, options);
+    const api2 = new Api;
     pagination.on('afterMove', (event) => {
         const currentPage = event.page;
         options.page = currentPage;
-        const api2 = new Api;
         api2.page = currentPage;
         api2.searchQuery = inputValue;
         console.log(api2);
