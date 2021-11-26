@@ -14,7 +14,7 @@ import { onCreateMarkup, onRatingFixedNumber } from './markupCardMovie';
 
 async function onGenreSearch(){
     fetchHomePage();
-
+console.log(data);
 };
 
  
