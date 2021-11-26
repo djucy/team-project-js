@@ -1,10 +1,13 @@
 import refs from './refs';
 const refsTeam = {
   openModalBtn: document.querySelector('[data-modal-open]'),
+
   closeModalBtn: document.querySelector('[data-modal-close]'),
   modal: document.querySelector('[data-modal]'),
   backdropModalTeam: document.querySelector('.backdrop-team'),
 };
+
+console.log(refsTeam.openModalBtn, 'openModalBtnyul');
 
 function onModalTeamBtn() {
   refsTeam.openModalBtn.addEventListener('click', toggleModal);
