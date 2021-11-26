@@ -7,3 +7,4 @@ import pageSwitch from './pageSwitch';
 import modalTeam from './modal-team';
 import { onTitleClick } from './movieDescriptionFullsize';
 // import onGenreSearch from './onGenreSearch';
+import pagination from './pagination';
