@@ -1,10 +1,6 @@
 import Api from './apiFetch';
 import onError from './markupCardMovie';
 import createCardMovies from '../templates/cardMovie.hbs';
-// import onCreateMarkup from './markupCardMovie';
-// import fetchMovie from './apiFetch';
-import MY_KEY from './apiFetch';
-import BASE_URL from './apiFetch';
 import refs from './refs';
 
 
@@ -34,7 +30,7 @@ function onLibraryDraw() {
 
 import { onCreateMarkup, onRatingFixedNumber } from './markupCardMovie';
   
-function fetchHomePage() {
+export function fetchHomePage() {
   apiHome.fetchMovie()
   .then(data => {
     onCreateMarkup(data);
@@ -55,17 +51,3 @@ function fetchHomePage() {
   
 }
 
-// то что работает у Димы, просто поставить как есть//
-
-// refs.libraryHomeLink.addEventListener('click', onHomeDraw);
-//   function  onHomeDraw() {
-//   refs.homeHeader.classList.remove('header-hidden');
-//     refs.libraryHeader.classList.add('header-hidden');
-//   api.fetchMovie()
-//   .then(data => {
-//     // onCreateMarkup(data);
-//     console.log(data);
-//   })
-//   .catch(onError);
-
-// }

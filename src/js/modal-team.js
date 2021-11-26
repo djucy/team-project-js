@@ -1,14 +1,37 @@
-(() => {
-  const refs = {
-    openModalBtn: document.querySelector('[data-modal-open]'),
-    closeModalBtn: document.querySelector('[data-modal-close]'),
-    modal: document.querySelector('[data-modal]'),
-  };
+import refs from './refs';
+const refsTeam = {
+  openModalBtn: document.querySelector('[data-modal-open]'),
 
-  refs.openModalBtn.addEventListener('click', toggleModal);
-  refs.closeModalBtn.addEventListener('click', toggleModal);
+  closeModalBtn: document.querySelector('[data-modal-close]'),
+  modal: document.querySelector('[data-modal]'),
+  backdropModalTeam: document.querySelector('.backdrop-team'),
+};
 
-  function toggleModal() {
-    refs.modal.classList.toggle('visually-hidden');
+console.log(refsTeam.openModalBtn, 'openModalBtnyul');
+
+function onModalTeamBtn() {
+  refsTeam.openModalBtn.addEventListener('click', toggleModal);
+  refsTeam.closeModalBtn.addEventListener('click', toggleModal);
+  refsTeam.backdropModalTeam.addEventListener('click', onBackdropClick);
+}
+
+function toggleModal() {
+  refsTeam.modal.classList.toggle('visually-hidden');
+}
+
+//закрытие при нажатии на Esc
+document.addEventListener('keydown', e => {
+  if (e.code === 'Escape') {
+    toggleModal();
   }
-})();
+});
+
+//закрытие при нажатии на backdrop
+
+function onBackdropClick(evt) {
+  if (refsTeam.backdropModalTeam === evt.target) {
+    toggleModal();
+  }
+}
+
+onModalTeamBtn();
