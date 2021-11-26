@@ -2,7 +2,7 @@ import createCardMovies from '../templates/cardMovie.hbs';
 import refs from './refs';
 import Api from './apiFetch';
 import modalMovie from './modalMovie';
-import {createPagination} from './pagination';
+import {createPaginationTrending, createPaginationSearch, container} from './pagination';
 
 export {onCreateMarkup, onRatingFixedNumber, onError};
 
@@ -52,6 +52,7 @@ api
   .fetchMovie()
   .then(data => {
     onCreateMarkup(data);
+    createPaginationTrending(data);
     console.log(data.results);
   })
   .catch(onError);
@@ -101,7 +102,6 @@ function normalRatingYearGenres(data) {
 function onCreateMarkup(data) {
   normalRatingYearGenres(data);
   refs.cardsMovieList.insertAdjacentHTML('afterbegin', createCardMovies(data.results));
-  createPagination(data);
   return data.results;
 }
 
@@ -115,6 +115,8 @@ function onSearchMovies(e) {
     .fetchSearch(e)
     .then(data => {
       onCreateMarkup(data);
+      container.innerHTML = '';
+      createPaginationSearch(data, api.query);
     })
     .catch(onError);
 }
