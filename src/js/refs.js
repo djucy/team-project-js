@@ -12,4 +12,6 @@ export default {
   libraryHeader: document.querySelector('.js-library__header'),
   homeHeader: document.querySelector('.js-home__header'),
   libraryHomeLink: document.querySelector('.library-home__link'),
+
+  genreSearchLink: document.querySelectorAll('.js-genres'),
 };
