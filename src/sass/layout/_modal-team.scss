@@ -19,6 +19,7 @@
 
 .team-modal {
   min-width: 280px;
+  margin-bottom: 30px;
 
   background-color: white;
 
@@ -196,6 +197,11 @@ img.team-list__img {
   @media screen and (min-width: 1024px) {
     height: 100px;
   }
+}
+
+.modal-team-footer > .footer__link {
+  margin: 0;
+  padding: 0;
 }
 
 // body.body-hidden {
