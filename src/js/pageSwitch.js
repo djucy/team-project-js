@@ -7,11 +7,12 @@ const apiHome = new Api();
 
 
 refs.libraryLink.addEventListener('click', onLibraryDraw);
-refs.libraryHomeLink.addEventListener('click', onHomeDraw);
+// refs.libraryHomeLink.addEventListener('click', onHomeDraw);
 refs.homeLink.addEventListener('click', onHomeDraw);
 refs.filmoteka.addEventListener('click', onHomeDraw);
 refs.libraryFilmoteka.addEventListener('click', onHomeDraw);
 refs.icon.addEventListener('click', onHomeDraw);
+refs.libraryIcon.addEventListener('click', onHomeDraw)
 
 // Отрисовка библиотеки, пока она пустая
 function onLibraryDraw() {
