@@ -1,19 +1,19 @@
-<header class="js-home__header">
+<section class="js-home__header">
   <div class="container header__container">
     <div class="navigation">
-      <div class="logo">
-        <a href="" class="icon-style">
+      <div class="logo home-logo">
+        <div class="icon-style">
           <svg class="icon" width="24" height="24">
             <use href="./imagesHeader/films.svg#icon-film"></use>
           </svg>
-        </a>
+        </div>
 
         <p class="logo__text">Filmoteka</p>
       </div>
 
       <nav>
         <ul class="nav">
-          <li class="nav__link-home"><a href="#" class="home-link">HOME </a></li>
+          <li class="nav__link-home home-link"><a href="#" class="home-link">HOME </a></li>
           <li class=" nav__connection-library"><a href="#" class="library-link"> LIBRARY </a></li>
         </ul>
       </nav>
@@ -22,6 +22,7 @@
     <form class="search-form js-movies-search" id="search-form">
       <div class="form">
         <input class="placeholder" type="text" name="query" autocomplete="off" placeholder="Поиск фильмов" />
+        
         <button type="submit" id="search-form__button" class="search-form__button">
           <svg class="icon__search" width="12" height="12">
             <use href="./imagesHeader/films.svg#icon-search"></use>
@@ -30,6 +31,12 @@
       </div>
     </form>
     <button type="submit" class="visually-hidden" data-action="load-more">Подгрузить</button>
-
+    <div class="timer" id="timer-1">
+      <img src="./imagesHeader/matrix.jpg" class="box" alt="photo" width="80" height="60px" />
+<!-- <div class="home__description"><p class="home__text">Не пропусти! Премьера фильма Matrix-4: 15 декабря.</p> -->
+    </div>
+   
+      </div>
+      </div>
   </div>
-</header>
+</section>

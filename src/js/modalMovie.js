@@ -1,10 +1,9 @@
-import cardMovieModal from '../templates/card_movie_modal.hbs';
-import cardsModalsMarkup from './markupCardMovie';
-import { onCreateMarkup, normalRatingYearGenres } from './markupCardMovie';
-import Api from './apiFetch';
+// import cardMovieModal from '../templates/card_movie_modal.hbs';
+// import cardsModalsMarkup from './markupCardMovie';
+// import { onCreateMarkup, normalRatingYearGenres } from './markupCardMovie';
+// import Api from './apiFetch';
 
 export default function modalMovie() {
-  // const dataSource = [];
 
   const refs = {
     movieCards: document.querySelector('.js-cards-movie-list'),
@@ -36,9 +35,9 @@ export default function modalMovie() {
   }
   function modalMarkup(el) {
     return `
-        <div class="img_movie"><img src="${el.dataset.src}" alt="${el.dataset.title}" alt=""></div>
+        <div class="img_movie"><img class="img_movie__card" src="${el.dataset.src}" alt="${el.dataset.title}" alt=""></div>
         <div class="about_movie">
-          <h1 class="about_movie__title">${el.dataset.title}</h1>
+          <h1 class="about_movie__title">${el.dataset.title}${el.dataset.name}</h1>
           
           <table class="about_movie__table">
             <tr class="about_movie__item">
@@ -93,8 +92,3 @@ export default function modalMovie() {
 
 modalMovie();
 
-// function markupOutput(markup) {
-//   refs.outputCountry.innerHTML = '';
-//   if (markup) refs.outputCountry.insertAdjacentHTML('afterbegin', markup);
-//   return;
-// }

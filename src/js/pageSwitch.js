@@ -3,13 +3,15 @@ import onError from './markupCardMovie';
 import createCardMovies from '../templates/cardMovie.hbs';
 import refs from './refs';
 
-
 const apiHome = new Api();
 
 
 refs.libraryLink.addEventListener('click', onLibraryDraw);
 refs.libraryHomeLink.addEventListener('click', onHomeDraw);
-// refs.homeLink.addEventListener('click', resetMarkup);
+refs.homeLink.addEventListener('click', onHomeDraw);
+refs.filmoteka.addEventListener('click', onHomeDraw);
+refs.libraryFilmoteka.addEventListener('click', onHomeDraw);
+refs.icon.addEventListener('click', onHomeDraw);
 
 // Отрисовка библиотеки, пока она пустая
 function onLibraryDraw() {
@@ -21,20 +23,22 @@ function onLibraryDraw() {
 // Возврат на домашнюю страницу
 
 
-  function  onHomeDraw() {
-  refs.homeHeader.classList.remove('header-hidden');
-    refs.libraryHeader.classList.add('header-hidden');
+function onHomeDraw() {
+  refs.searchForm.reset();
     refs.cardsMovieList.innerHTML = '';
-    fetchHomePage();
+  refs.homeHeader.classList.remove('header-hidden');
+  refs.libraryHeader.classList.add('header-hidden');
+  fetchHomePage();
+  
 }
 
-import { onCreateMarkup, onRatingFixedNumber } from './markupCardMovie';
+import { onCreateMarkup, onRatingFixedNumber, resetMarkup} from './markupCardMovie';
   
 export function fetchHomePage() {
   apiHome.fetchMovie()
   .then(data => {
     onCreateMarkup(data);
-    console.log(data);
+    
   })
     .catch(onError);
   

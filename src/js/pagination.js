@@ -1,7 +1,7 @@
 import Pagination from 'tui-pagination';
 import 'tui-pagination/dist/tui-pagination.css';
 import {onCreateMarkup, onError} from './markupCardMovie';
-export {createPagination};
+export {createPaginationTrending, createPaginationSearch, container};
 import {Api} from './apiFetch';
 
 const filmListRef = document.querySelector('.js-cards-movie-list');
@@ -10,14 +10,14 @@ console.log(container);
 
 const options = {
     totalItems: 10,
-    itemsPerPage: 10,
+    itemsPerPage: 20,
     visiblePages: 7,
     page: 1,
     centerAlign: true,
     firstItemClassName: 'tui-first-child',
     lastItemClassName: 'tui-last-child',
     template: {
-      page: '<a href="#" class="tui-page-btn">{{page}}</a>',
+      page: '<a href="#" class="tui-page-btn" style="font-weight: 500;">{{page}}</a>',
       currentPage: '<strong class="tui-page-btn tui-is-selected" style="background-color: #FF6B08; border-radius: 5px; width: 40px; height: 40px; padding: 13px 11px;">{{page}}</strong>',
       moveButton:
         '<a href="#" class="tui-page-btn tui-{{type}}">' +
@@ -34,36 +34,41 @@ const options = {
     }
   };
   
-function  createPagination (result) {
-    console.log(result);
-
+function  createPaginationTrending (result) {
     options.totalItems = result.total_results;
-    console.log(options.totalItems);
     const pagination = new Pagination(container, options);
-  
     pagination.on('afterMove', (event) => {
-        console.log(options.page);
         const currentPage = event.page;
-        console.log(options.page);
         options.page = currentPage;
-        console.log(currentPage);
         const api2 = new Api;
         api2.page = currentPage;
-        console.log(api2);
         api2.fetchMovie()
             .then(data => {
                 filmListRef.innerHTML = '';
+                options.page = 1;
                 onCreateMarkup(data);
               })
             .catch(onError);
    });
+}
 
-//    pagination.on('beforeMove', (event) => {
-//     const currentPage = event.page;
+function  createPaginationSearch (result, inputValue) {
+    options.totalItems = result.total_results;
+    options.page = 1;
+    const pagination = new Pagination(container, options);
+    const api2 = new Api;
+    pagination.on('afterMove', (event) => {
+        const currentPage = event.page;
+        options.page = currentPage;
+        api2.page = currentPage;
+        api2.searchQuery = inputValue;
+        console.log(api2);
 
-//         if (currentPage === 10) {
-//         return false;
-//         // return true;
-//         }
-//     });
+        api2.fetchSearch()
+        .then(data => {
+            filmListRef.innerHTML = '';
+            onCreateMarkup(data);
+          })
+          .catch(onError);
+    });
 }
