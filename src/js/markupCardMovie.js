@@ -2,6 +2,9 @@ import createCardMovies from '../templates/cardMovie.hbs';
 import refs from './refs';
 import Api from './apiFetch';
 import modalMovie from './modalMovie';
+import {createPaginationTrending, createPaginationSearch, container} from './pagination';
+
+export {onCreateMarkup, onRatingFixedNumber, onError};
 
 const api = new Api();
 
@@ -45,9 +48,12 @@ function onComparingArrayAndObject(arr, obj) {
 }
 
 // Разметка карточек фильмов по запросу на бэк
-api.fetchMovie()
+api
+  .fetchMovie()
   .then(data => {
     onCreateMarkup(data);
+    createPaginationTrending(data);
+    console.log(data.results);
   })
   .catch(onError);
 
@@ -94,8 +100,9 @@ function normalRatingYearGenres(data) {
 }
 
 function onCreateMarkup(data) {
-  normalRatingYearGenres(data)
+  normalRatingYearGenres(data);
   refs.cardsMovieList.insertAdjacentHTML('afterbegin', createCardMovies(data.results));
+  return data.results;
 }
 
 //==============Поиск фильма============================
@@ -104,9 +111,12 @@ function onSearchMovies(e) {
   e.preventDefault();
   api.query = e.currentTarget.elements.query.value;
   resetMarkup();
-  api.fetchSearch(e)
-    .then((data) => {
+  api
+    .fetchSearch(e)
+    .then(data => {
       onCreateMarkup(data);
+      container.innerHTML = '';
+      createPaginationSearch(data, api.query);
     })
     .catch(onError);
 }
@@ -119,12 +129,13 @@ function resetMarkup() {
 // ===================================================
 // Подгрузка страниц
 function onLoadMore() {
-  api.fetchSearch()
+  api
+    .fetchSearch()
     .then(data => {
-        return refs.cardsMovieList.insertAdjacentHTML('beforeend', createCardMovies(data.results))
+      return refs.cardsMovieList.insertAdjacentHTML('beforeend', createCardMovies(data.results));
     })
-    .catch(onError)
-//  onScroll();
+    .catch(onError);
+  //  onScroll();
 }
 
 // function onScroll() {
@@ -158,3 +169,5 @@ function onLoadMore() {
 //   refs.cardsMovieList.innerHTML = '';
 //   api.resetPageNumber();
 // }
+// ===================================================
+
