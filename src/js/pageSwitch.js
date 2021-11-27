@@ -2,14 +2,15 @@ import Api from './apiFetch';
 import onError from './markupCardMovie';
 import createCardMovies from '../templates/cardMovie.hbs';
 import refs from './refs';
-
+import resetPageNumber from './apiFetch';
+import createPaginationTrending from './pagination';
 
 const apiHome = new Api();
 
 
 refs.libraryLink.addEventListener('click', onLibraryDraw);
 refs.libraryHomeLink.addEventListener('click', onHomeDraw);
-// refs.homeLink.addEventListener('click', resetMarkup);
+refs.homeLink.addEventListener('click', onHomeDraw);
 
 // Отрисовка библиотеки, пока она пустая
 function onLibraryDraw() {
@@ -21,20 +22,22 @@ function onLibraryDraw() {
 // Возврат на домашнюю страницу
 
 
-  function  onHomeDraw() {
-  refs.homeHeader.classList.remove('header-hidden');
-    refs.libraryHeader.classList.add('header-hidden');
+function onHomeDraw() {
     refs.cardsMovieList.innerHTML = '';
-    fetchHomePage();
+  refs.homeHeader.classList.remove('header-hidden');
+  refs.libraryHeader.classList.add('header-hidden');
+  fetchHomePage();
+  console.log('hjhgvb,jknk,m');
+  
 }
 
-import { onCreateMarkup, onRatingFixedNumber } from './markupCardMovie';
+import { onCreateMarkup, onRatingFixedNumber, resetMarkup} from './markupCardMovie';
   
 export function fetchHomePage() {
   apiHome.fetchMovie()
   .then(data => {
     onCreateMarkup(data);
-    console.log(data);
+    
   })
     .catch(onError);
   
