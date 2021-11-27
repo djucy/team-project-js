@@ -13,7 +13,7 @@ const genreApi = new Api();
 import { onCreateMarkup, onRatingFixedNumber } from './markupCardMovie';
 
 async function onGenreSearch(){
-    // fetchHomePage();
+    fetchHomePage();
 console.log(data);
 };
 
