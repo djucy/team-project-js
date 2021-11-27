@@ -308,12 +308,12 @@ p {
 //    animation: animate125 3000ms infinite 1000ms;
 // }
 .box:hover {
-  transform: scale(1.5);
+  transform: scale(2);
 
   animation: animate125 3000ms infinite 1000ms;
 }
 .box:focus {
-  transform: scale(1.5);
+  transform: scale(2);
 
   animation: animate125 3000ms infinite 1000ms;
 }

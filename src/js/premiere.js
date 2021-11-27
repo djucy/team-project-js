@@ -20,12 +20,12 @@ class CountdownTimer {
     return `
       <div class="timer-box">
       <span>ПРЕМЬЕРА:</span>
-      
+      <br>
       <span class="amount" data-value="days">00</span><span class="text">д</span>
       <span class="amount" data-value="hours">00</span> <span class="text">ч</span>
       <span class="amount" data-value="mins">00</span><span class="text">мин</span>
       <span class="amount" data-value="secs">00</span> <span class="text">сек</span>
-    
+      </br>
       </div>
   `;
   }
