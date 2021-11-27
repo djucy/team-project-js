@@ -94,15 +94,14 @@
 //   }
 // }
 
-// .card-movie__img-container {
-//   margin-bottom: 10px;
-//   height: 398px;
-// }
+.card-movie__img-container {
+  height: 398px;
+  overflow: hidden;
+}
 
-// .card-movie__img {
-//   width: 100%;
-//   height: 100%;
-// }
+.card-movie__img {
+  height: 398px;
+}
 
 // .card-movie__title {
 //   font-weight: 500;

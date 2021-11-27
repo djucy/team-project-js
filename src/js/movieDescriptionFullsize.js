@@ -42,8 +42,6 @@ function appendMovieCard(movie) {
     const movieCard = cardMovieModal(movie);
     
     return refs.inputCardMovie.insertAdjacentHTML('beforeend', movieCard);
-    
-  
 
 }
 
