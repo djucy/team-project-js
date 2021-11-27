@@ -1,3 +1,4 @@
+//Timer
 class CountdownTimer {
   constructor({ selector, targetDate }) {
     this.date = targetDate;
@@ -18,13 +19,13 @@ class CountdownTimer {
   #getTimerMarkup() {
     return `
       <div class="timer-box">
-      <span>Премьера:</span>
-      <br>
+      <span>ПРЕМЬЕРА:</span>
+      
       <span class="amount" data-value="days">00</span><span class="text">д</span>
       <span class="amount" data-value="hours">00</span> <span class="text">ч</span>
       <span class="amount" data-value="mins">00</span><span class="text">мин</span>
       <span class="amount" data-value="secs">00</span> <span class="text">сек</span>
-      </br>
+    
       </div>
   `;
   }

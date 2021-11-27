@@ -12,7 +12,7 @@ export default {
   libraryHeader: document.querySelector('.js-library__header'),
   homeHeader: document.querySelector('.js-home__header'),
   libraryHomeLink: document.querySelector('.library-home__link'),
-  genreSearchLink: document.querySelectorAll('.js-genres'),
+  // genreSearchLink: document.querySelectorAll('.js-genres'),
   filmoteka: document.querySelector('.logo__text'),
   libraryFilmoteka: document.querySelector('.js-library__text'),
   icon: document.querySelector('.icon-style'),
