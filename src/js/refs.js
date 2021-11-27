@@ -4,6 +4,7 @@ export default {
   searchForm: document.querySelector('#search-form'),
   searchForm: document.querySelector('.js-movies-search'),
   loadMoreBtn: document.querySelector('[data-action="load-more"]'),
+  textInputError: document.querySelector('.js-text-input-error'),
   // =============================================================
 
   
