@@ -194,7 +194,7 @@ p {
 }
 
 .form {
-  padding-bottom: 97px;
+  padding-bottom: 10px;
   display: flex;
   position: relative;
   justify-content: center;
@@ -253,11 +253,11 @@ p {
 
 .icon__search {
   position: absolute;
-  left: 95%;
+  left: 90%;
 }
 @media screen and (min-width: 768px) {
   .icon__search {
-    left: 75%;
+    left: 74%;
   }
 }
 @media screen and (min-width: 1024px) {
@@ -265,6 +265,83 @@ p {
     left: 67%;
   }
 }
-.body__style {
-  background-color: #f0b0b0;
+// .body__style {
+//   background-color: #f0b0b0;
+// }
+
+.premiere {
+  max-height: 50px;
+  padding-left: 20px;
+  display: flex;
+  display: block;
+  border-color: white;
+}
+.timer {
+  display: flex;
+  padding-bottom: 20px;
+  color: red;
+  justify-content: center;
+  align-items: center;
+}
+.timer-box {
+  line-height: 1.175;
+}
+
+//ANIMATION
+
+.box {
+  width: 60px;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 10px;
+  margin-left: 15px;
+
+  box-shadow: 0px 2px 1px -1px rgba(0, 0, 0, 0.2), 0px 1px 1px 0px rgba(0, 0, 0, 0.14),
+    0px 1px 3px 0px rgba(0, 0, 0, 0.12);
+}
+
+// .box::before {
+
+//    content: "scale(1.25)";
+//    animation: animate125 3000ms infinite 1000ms;
+// }
+.box:hover {
+  transform: scale(1.5);
+
+  animation: animate125 3000ms infinite 1000ms;
+}
+.box:focus {
+  transform: scale(1.5);
+
+  animation: animate125 3000ms infinite 1000ms;
+}
+
+@keyframes animate125 {
+  0% {
+    transform: scale(1);
+  }
+
+  50% {
+    transform: scale(1.25);
+  }
+
+  100% {
+    transform: scale(1);
+  }
+}
+
+@keyframes animate75 {
+  0% {
+    transform: scale(1);
+  }
+
+  50% {
+    transform: scale(0.75);
+  }
+
+  100% {
+    transform: scale(1);
+  }
 }
