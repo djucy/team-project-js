@@ -27,7 +27,6 @@ function onHomeDraw() {
   refs.homeHeader.classList.remove('header-hidden');
   refs.libraryHeader.classList.add('header-hidden');
   fetchHomePage();
-  console.log('hjhgvb,jknk,m');
   
 }
 
