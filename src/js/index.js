@@ -5,4 +5,4 @@ import inputMoviesSerch from './inputMoviesSerch';
 import pageSwitch from './pageSwitch';
 
 import modalTeam from './modal-team';
-import homeJs from './home';
+import premiere from './premiere';
