@@ -15,5 +15,6 @@ export default {
   genreSearchLink: document.querySelectorAll('.js-genres'),
   filmoteka: document.querySelector('.logo__text'),
   libraryFilmoteka: document.querySelector('.js-library__text'),
-  icon:document.querySelector('.icon-style'),
+  icon: document.querySelector('.icon-style'),
+  libraryIcon:document.querySelector('.filmoteka')
 };
