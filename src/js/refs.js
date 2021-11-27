@@ -7,7 +7,7 @@ export default {
 // =============================================================
 
   
-  homeLink: document.querySelectorAll('.home-link'),
+  homeLink: document.querySelector('.home-link'),
   libraryLink: document.querySelector('.library-link'),
   libraryHeader: document.querySelector('.js-library__header'),
   homeHeader: document.querySelector('.js-home__header'),
