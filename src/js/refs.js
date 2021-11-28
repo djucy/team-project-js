@@ -17,5 +17,12 @@ export default {
   filmoteka: document.querySelector('.logo__text'),
   libraryFilmoteka: document.querySelector('.js-library__text'),
   icon: document.querySelector('.icon-style'),
-  libraryIcon:document.querySelector('.filmoteka')
+  libraryIcon:document.querySelector('.filmoteka'),
+
+
+  // buttonAddWatched: document.querySelector('.')
+  buttonWatchedRender: document.getElementById('library-watched__button'),
+  buttonQueuedRender: document.getElementById('library-queued__button'),
+  buttonAddToWatchet: document.querySelector('.button-watched'),
+  buttonAddToQueue: document.querySelector('.button-queue'),
 };

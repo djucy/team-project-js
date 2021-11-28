@@ -128,6 +128,8 @@ function onSearchMovies(e) {
       container.innerHTML = '';
       createPaginationSearch(data, api.query);
       incorrectInput(data.results);
+      console.log(data.results);
+      refs.searchForm.reset();
     })
     .catch(onError);
   }
@@ -135,6 +137,7 @@ function onSearchMovies(e) {
   function resetMarkup() {
     refs.cardsMovieList.innerHTML = '';
     api.resetPageNumber();
+    refs.searchForm.reset();
   }
   
 //===Проверка корректности поискового запроса=========
