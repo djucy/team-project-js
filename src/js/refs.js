@@ -17,5 +17,5 @@ export default {
   filmoteka: document.querySelector('.logo__text'),
   libraryFilmoteka: document.querySelector('.js-library__text'),
   icon: document.querySelector('.icon-style'),
-  libraryIcon:document.querySelector('.filmoteka')
+  libraryIcon:document.querySelector('.filmoteka'),
 };

@@ -142,6 +142,7 @@ function incorrectInput(e) {
   } else {
     refs.textInputError.classList.add('is-hidden')
   }
+  refs.searchForm.reset();
 }
 
 // ===================================================
