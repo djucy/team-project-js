@@ -1,13 +1,14 @@
 export default {
   // =====================Карточка фильма=========================
   cardsMovieList: document.querySelector('.js-cards-movie-list'),
-  searchForm: document.querySelector('#search-form'),
   searchForm: document.querySelector('.js-movies-search'),
   loadMoreBtn: document.querySelector('[data-action="load-more"]'),
-  textInputError: document.querySelector('.js-text-input-error'),
-  // =============================================================
-
   
+  // =====================Спиннер=================================
+  preloader: document.querySelector('.preloader'),
+  // =============================================================
+    
+  textInputError: document.querySelector('.js-text-input-error'),
   homeLink: document.querySelector('.home-link'),
   libraryLink: document.querySelector('.library-link'),
   libraryHeader: document.querySelector('.js-library__header'),

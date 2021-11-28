@@ -51,8 +51,12 @@ function onComparingArrayAndObject(arr, obj) {
 api
   .fetchMovie()
   .then(data => {
-    onCreateMarkup(data);
-    createPaginationTrending(data);
+    refs.preloader.classList.remove('is-hidden')
+    setTimeout(() => {
+      onCreateMarkup(data);
+      createPaginationTrending(data);
+      refs.preloader.classList.add('is-hidden')
+    }, 500)
   })
   .catch(onError);
 
@@ -95,14 +99,14 @@ function onCreateMarkup(data) {
     } else {
       return;
     };
-
+    
     if(!movie.vote_average) {
       movie.vote_average = 0;
     } else {
       return;
     };
   })
-
+  
   normalRatingYearGenres(data);
   refs.cardsMovieList.insertAdjacentHTML('afterbegin', createCardMovies(data.results));
   return data.results;
@@ -117,11 +121,15 @@ function onSearchMovies(e) {
   api
     .fetchSearch(e)
     .then(data => {
-      onCreateMarkup(data);
-      container.innerHTML = '';
-      createPaginationSearch(data, api.query);
-      incorrectInput(data.results);
-      refs.searchForm.reset();
+      refs.preloader.classList.remove('is-hidden')
+      setTimeout(() => {
+        onCreateMarkup(data);
+        container.innerHTML = '';
+        createPaginationSearch(data, api.query);
+        incorrectInput(data.results);
+        refs.searchForm.reset();
+        refs.preloader.classList.add('is-hidden')
+      }, 500);
     })
     .catch(onError);
   }

@@ -1,0 +1,177 @@
+.preloader
+	position: fixed
+	top: 50%
+	left: 50%
+	transform: translate(-50%, -50%)
+.pl
+	opacity: 0.7
+	width: 10em
+	height: 10em
+	&__ring
+		$dur: 2s
+		animation: ringA $dur linear infinite
+		&--a
+			stroke: $accent-color
+		&--b
+			animation-name: ringB
+			stroke: $accent-color
+		&--c
+			animation-name: ringC
+			stroke: $accent-color
+		&--d
+			animation-name: ringD
+			stroke: $accent-color
+
+/* Dark theme */
+@media (prefers-color-scheme: dark)
+	body
+		background: $background-color-light
+
+/* Animations */
+@keyframes ringA
+	from, 4%
+		stroke:
+			dasharray: 0 660
+			width: 20
+			dashoffset: -330
+	12%
+		stroke:
+			dasharray: 60 600
+			width: 30
+			dashoffset: -335
+	32%
+		stroke:
+			dasharray: 60 600
+			width: 30
+			dashoffset: -595
+	40%, 54%
+		stroke:
+			dasharray: 0 660
+			width: 20
+			dashoffset: -660
+	62%
+		stroke:
+			dasharray: 60 600
+			width: 30
+			dashoffset: -665
+	82%
+		stroke:
+			dasharray: 60 600
+			width: 30
+			dashoffset: -925
+	90%, to
+		stroke:
+			dasharray: 0 660
+			width: 20
+			dashoffset: -990
+
+@keyframes ringB
+	from, 12%
+		stroke:
+			dasharray: 0 220
+			width: 20
+			dashoffset: -110
+	20%
+		stroke:
+			dasharray: 20 200
+			width: 30
+			dashoffset: -115
+	40%
+		stroke:
+			dasharray: 20 200
+			width: 30
+			dashoffset: -195
+	48%, 62%
+		stroke:
+			dasharray: 0 220
+			width: 20
+			dashoffset: -220
+	70%
+		stroke:
+			dasharray: 20 200
+			width: 30
+			dashoffset: -225
+	90%
+		stroke:
+			dasharray: 20 200
+			width: 30
+			dashoffset: -305
+	98%, to
+		stroke:
+			dasharray: 0 220
+			width: 20
+			dashoffset: -330
+
+@keyframes ringC
+	from
+		stroke:
+			dasharray: 0 440
+			width: 20
+			dashoffset: 0
+	8%
+		stroke:
+			dasharray: 40 400
+			width: 30
+			dashoffset: -5
+	28%
+		stroke:
+			dasharray: 40 400
+			width: 30
+			dashoffset: -175
+	36%, 58%
+		stroke:
+			dasharray: 0 440
+			width: 20
+			dashoffset: -220
+	66%
+		stroke:
+			dasharray: 40 400
+			width: 30
+			dashoffset: -225
+	86%
+		stroke:
+			dasharray: 40 400
+			width: 30
+			dashoffset: -395
+	94%, to
+		stroke:
+			dasharray: 0 440
+			width: 20
+			dashoffset: -440
+
+@keyframes ringD
+	from, 8%
+		stroke:
+			dasharray: 0 440
+			width: 20
+			dashoffset: 0
+	16%
+		stroke:
+			dasharray: 40 400
+			width: 30
+			dashoffset: -5
+	36%
+		stroke:
+			dasharray: 40 400
+			width: 30
+			dashoffset: -175
+	44%, 50%
+		stroke:
+			dasharray: 0 440
+			width: 20
+			dashoffset: -220
+	58%
+		stroke:
+			dasharray: 40 400
+			width: 30
+			dashoffset: -225
+	78%
+		stroke:
+			dasharray: 40 400
+			width: 30
+			dashoffset: -395
+	86%, to
+		stroke:
+			dasharray: 0 440
+			width: 20
+			dashoffset: -440
