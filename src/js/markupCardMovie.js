@@ -129,10 +129,10 @@ function onSearchMovies(e) {
     })
     .catch(onError);
   }
-        refs.preloader.classList.remove('is-hidden')
-      setTimeout(() => {
-        refs.preloader.classList.add('is-hidden')
-      }, 500);
+      //   refs.preloader.classList.remove('is-hidden')
+      // setTimeout(() => {
+      //   refs.preloader.classList.add('is-hidden')
+      // }, 500);
 
   function resetMarkup() {
     refs.cardsMovieList.innerHTML = '';
