@@ -16,15 +16,20 @@ function onModalTeamBtn() {
 }
 
 function toggleModal() {
-  refsTeam.modal.classList.toggle('visually-hidden');
+  return refsTeam.modal.classList.toggle('visually-hidden');
 }
 
 //закрытие при нажатии на Esc
+
 document.addEventListener('keydown', e => {
   if (e.code === 'Escape') {
-    toggleModal();
+    return refsTeam.modal.classList.add('visually-hidden');
   }
 });
+
+// function onEscModalClose() {
+//   return refsTeam.modal.classList('visually-hidden1');
+// }
 
 //закрытие при нажатии на backdrop
 
