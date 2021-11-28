@@ -106,14 +106,10 @@ function onCreateMarkup(data) {
 function onSearchMovies(e) {
   e.preventDefault();
   api.query = e.currentTarget.elements.query.value;
-  // if (e === '') {
-  //   return refs.textInputError.classList.remove('is-hidden')
-  // }
   resetMarkup();
   api
     .fetchSearch(e)
     .then(data => {
-      
       onCreateMarkup(data);
       container.innerHTML = '';
       createPaginationSearch(data, api.query);
@@ -129,7 +125,6 @@ function onSearchMovies(e) {
     api.resetPageNumber();
     refs.searchForm.reset();
   }
-
   
 //===Проверка корректности поискового запроса=========
 
