@@ -96,6 +96,20 @@ function normalRatingYearGenres(data) {
 }
 
 function onCreateMarkup(data) {
+  data.results.forEach(movie => {
+    if(!movie.genre_ids) {
+      movie.genre_ids = [1];
+    } else {
+      return;
+    };
+
+    if(!movie.vote_average) {
+      movie.vote_average = 0;
+    } else {
+      return;
+    };
+  })
+
   normalRatingYearGenres(data);
   refs.cardsMovieList.insertAdjacentHTML('afterbegin', createCardMovies(data.results));
   return data.results;
