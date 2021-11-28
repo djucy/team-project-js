@@ -18,4 +18,7 @@ export default {
   libraryFilmoteka: document.querySelector('.js-library__text'),
   icon: document.querySelector('.icon-style'),
   libraryIcon:document.querySelector('.filmoteka'),
+
+
+  // buttonAddWatched: document.querySelector('.')
 };

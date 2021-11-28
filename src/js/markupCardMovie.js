@@ -119,6 +119,7 @@ function onSearchMovies(e) {
       createPaginationSearch(data, api.query);
       incorrectInput(data.results);
       console.log(data.results);
+      refs.searchForm.reset();
     })
     .catch(onError);
   }
@@ -126,6 +127,7 @@ function onSearchMovies(e) {
   function resetMarkup() {
     refs.cardsMovieList.innerHTML = '';
     api.resetPageNumber();
+    refs.searchForm.reset();
   }
 
   
@@ -142,7 +144,6 @@ function incorrectInput(e) {
   } else {
     refs.textInputError.classList.add('is-hidden')
   }
-  refs.searchForm.reset();
 }
 
 // ===================================================

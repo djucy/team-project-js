@@ -6,4 +6,3 @@ import pageSwitch from './pageSwitch';
 //import { modalMovie } from './modalMovie';
 import modalTeam from './modal-team';
 import premiere from './premiere';
-// 
