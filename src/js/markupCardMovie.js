@@ -121,19 +121,19 @@ function onSearchMovies(e) {
   api
     .fetchSearch(e)
     .then(data => {
-      refs.preloader.classList.remove('is-hidden')
-      setTimeout(() => {
         onCreateMarkup(data);
         container.innerHTML = '';
         createPaginationSearch(data, api.query);
         incorrectInput(data.results);
         refs.searchForm.reset();
-        refs.preloader.classList.add('is-hidden')
-      }, 500);
     })
     .catch(onError);
   }
-  
+        refs.preloader.classList.remove('is-hidden')
+      setTimeout(() => {
+        refs.preloader.classList.add('is-hidden')
+      }, 500);
+
   function resetMarkup() {
     refs.cardsMovieList.innerHTML = '';
     api.resetPageNumber();
