@@ -1,0 +1,17 @@
+.scrollToTop {
+    background-image: url('../img/svg/superman_fly.svg');
+    background-color: $accent-color;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    border-color: $accent-color;
+    background-position: 50% 50%;
+    position: fixed;
+    bottom: 35px;
+    right: 5px;
+    background-repeat: no-repeat;
+}
+
+.scrollToTop:hover {
+    background-color: $background-color-modal;
+}
