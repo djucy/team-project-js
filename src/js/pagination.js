@@ -6,7 +6,6 @@ import {Api} from './apiFetch';
 
 const filmListRef = document.querySelector('.js-cards-movie-list');
 const container = document.getElementById('tui-pagination-container');
-console.log(container);
 
 const options = {
     totalItems: 10,
@@ -80,3 +79,4 @@ const onScrollToTop = function () {
 
 const buttonTop = document.querySelector('.scrollToTop');
 buttonTop.addEventListener('click', onScrollToTop);
+

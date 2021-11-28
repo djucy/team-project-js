@@ -53,7 +53,7 @@ api
   .then(data => {
     onCreateMarkup(data);
     createPaginationTrending(data);
-    console.log(data.results);
+    // console.log(data.results);
   })
   .catch(onError);
 
@@ -128,7 +128,7 @@ function onSearchMovies(e) {
       container.innerHTML = '';
       createPaginationSearch(data, api.query);
       incorrectInput(data.results);
-      console.log(data.results);
+      // console.log(data.results);
       refs.searchForm.reset();
     })
     .catch(onError);
