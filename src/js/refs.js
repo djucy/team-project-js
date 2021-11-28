@@ -21,4 +21,8 @@ export default {
 
 
   // buttonAddWatched: document.querySelector('.')
+  buttonWatchedRender: document.getElementById('library-watched__button'),
+  buttonQueuedRender: document.getElementById('library-queued__button'),
+  buttonAddToWatchet: document.querySelector('.button-watched'),
+  buttonAddToQueue: document.querySelector('.button-queue'),
 };
