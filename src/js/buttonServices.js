@@ -23,7 +23,7 @@ function onQueuedRender() {
 };
 
 function onAddToWatched() {
-    console.log('add to watched');
+    // console.log('add to watched');
     // localStorage.setItem('watched:');
 }
 function addToQueue() {

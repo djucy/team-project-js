@@ -53,7 +53,6 @@ api
   .then(data => {
     onCreateMarkup(data);
     createPaginationTrending(data);
-    console.log(data.results);
   })
   .catch(onError);
 
@@ -82,12 +81,6 @@ function onSliceNumber(release) {
   }
   return release.slice(0, 4);
 }
-
-// function onCardImage() {
-//   if (poster_path === null) {
-//     poster_path = unnamed_min.png
-//   }
-// }
 
 function normalRatingYearGenres(data) {
   onRatingFixedNumber(data.results);
@@ -128,7 +121,6 @@ function onSearchMovies(e) {
       container.innerHTML = '';
       createPaginationSearch(data, api.query);
       incorrectInput(data.results);
-      console.log(data.results);
       refs.searchForm.reset();
     })
     .catch(onError);
