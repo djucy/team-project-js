@@ -16,7 +16,6 @@ export default function modalMovie() {
     createCardMovie: document.querySelector('.card_modal'),
   };
 
-  // console.log(refs.movieModal);
 
   refs.movieModal.addEventListener('click', onModalClick);
   refs.movieCards.addEventListener('click', onPictureClick);
@@ -40,7 +39,9 @@ export default function modalMovie() {
     console.log(buttonAddToWatchet);
     buttonAddToWatchet.addEventListener('click', onAddToWatched);
     buttonAddToQueue.addEventListener('click', addToQueue);
+    disableScrolling();
   }
+
   function modalMarkup(el) {
     return `
         <div class="img_movie"><img class="img_movie__card" src="${el.dataset.src}" alt="${el.dataset.title}" alt=""></div>
@@ -79,6 +80,7 @@ export default function modalMovie() {
   function onCloseModalClick() {
     refs.movieModal.classList.remove('is-open');
     refs.movieContent.src = '';
+    enableScrolling();
   }
 
   // при клике на бэкдроп закрывается модалка
@@ -86,6 +88,7 @@ export default function modalMovie() {
   function onModalClick(evt) {
     if (refs.movieModal === evt.target) {
       onCloseModalClick();
+      enableScrolling();
     }
   }
 
@@ -94,6 +97,7 @@ export default function modalMovie() {
   document.addEventListener('keydown', e => {
     if (e.key === 'Escape') {
       onCloseModalClick();
+      enableScrolling();
     }
   });
 }
@@ -103,5 +107,17 @@ function onAddToWatched() {
     // localStorage.setItem('watched:');
 }
 function addToQueue() {
-    console.log('queueueueue');
+  console.log('queueueueue');
+
 }
+function disableScrolling(){
+    var x=window.scrollX;
+    var y=window.scrollY;
+    window.onscroll=function(){
+      window.scrollTo(x, y);
+    };
+}
+
+function enableScrolling(){
+  window.onscroll = function () { };
+  }
