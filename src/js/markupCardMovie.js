@@ -51,6 +51,10 @@ function onComparingArrayAndObject(arr, obj) {
 api
   .fetchMovie()
   .then(data => {
+    onCreateMarkup(data);
+    createPaginationTrending(data);
+    // console.log(data.results);
+
     refs.preloader.classList.remove('is-hidden')
     setTimeout(() => {
       onCreateMarkup(data);
@@ -121,11 +125,12 @@ function onSearchMovies(e) {
   api
     .fetchSearch(e)
     .then(data => {
-        onCreateMarkup(data);
-        container.innerHTML = '';
-        createPaginationSearch(data, api.query);
-        incorrectInput(data.results);
-        refs.searchForm.reset();
+      onCreateMarkup(data);
+      container.innerHTML = '';
+      createPaginationSearch(data, api.query);
+      incorrectInput(data.results);
+      // console.log(data.results);
+      refs.searchForm.reset();
     })
     .catch(onError);
   }
