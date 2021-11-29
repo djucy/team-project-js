@@ -71,7 +71,7 @@ p {
   width: 129.53px;
   height: 44px;
   border-radius: 5px;
-   border-color: #ffffff;
+  border-color: #ffffff;
   color: #ffffff;
   border-color: #ffffff;
   background-color: rgba(0, 0, 0, 0.56);
@@ -93,7 +93,6 @@ p {
   &:active {
     background-color: rgba(255, 107, 1, 1);
     background-color: rgba(255, 107, 1, 1);
-    
   }
 }
 
@@ -149,6 +148,10 @@ p {
 
   margin: 0;
   padding: 0;
+
+  li:not(:last-child) {
+    margin-right: 8px;
+  }
 }
 .nav__link {
   margin-right: 39px;
@@ -295,13 +298,12 @@ p {
 .timer {
   display: flex;
   padding-bottom: 20px;
-  color:  rgba(255, 107, 8, 1);
+  color: rgba(255, 107, 8, 1);
   justify-content: center;
   align-items: center;
   line-height: 1.175;
   font-weight: 500;
 }
-
 
 //ANIMATION
 

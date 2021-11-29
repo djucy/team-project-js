@@ -29,7 +29,7 @@ export default function modalMovie() {
     }
 
     refs.movieModal.classList.add('is-open');
-    console.log(modalMarkup(evt.path[3]));
+    
     refs.createCardMovie.innerHTML = '';
     refs.createCardMovie.insertAdjacentHTML('afterbegin', modalMarkup(evt.path[3]));
   }
