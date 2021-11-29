@@ -9,6 +9,8 @@ export default class Api {
     this.language = 'en-US';
     // 'en-US'
     // 'ru-RU'
+    this.id = null;
+    
   }
   
 //запрос данных для фильмов (возвращает массив объектов с свойствами фильмов)
@@ -43,5 +45,14 @@ export default class Api {
     this.searchQuery = newSearchQuery;
     // console.log(this.searchQuery)
   }
+
+  async fetchDescribeMovie() {
+   const response = await fetch(`${BASE_URL}/3/movie/${this.id}?api_key=${MY_KEY}&language=${this.language}`); 
+    // tv
+    const data = await response.json();
+    console.log(data);
+    return data;
+    
+   }
 }
 

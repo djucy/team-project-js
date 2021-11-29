@@ -54,6 +54,13 @@ api
     onCreateMarkup(data);
     createPaginationTrending(data);
     // console.log(data.results);
+
+    refs.preloader.classList.remove('is-hidden')
+    setTimeout(() => {
+      onCreateMarkup(data);
+      createPaginationTrending(data);
+      refs.preloader.classList.add('is-hidden')
+    }, 500)
   })
   .catch(onError);
 
@@ -83,12 +90,6 @@ function onSliceNumber(release) {
   return release.slice(0, 4);
 }
 
-// function onCardImage() {
-//   if (poster_path === null) {
-//     poster_path = unnamed_min.png
-//   }
-// }
-
 function normalRatingYearGenres(data) {
   onRatingFixedNumber(data.results);
   onFilmReleaseYear(data.results);
@@ -102,14 +103,14 @@ function onCreateMarkup(data) {
     } else {
       return;
     };
-
+    
     if(!movie.vote_average) {
       movie.vote_average = 0;
     } else {
       return;
     };
   })
-
+  
   normalRatingYearGenres(data);
   refs.cardsMovieList.insertAdjacentHTML('afterbegin', createCardMovies(data.results));
   return data.results;
@@ -133,7 +134,11 @@ function onSearchMovies(e) {
     })
     .catch(onError);
   }
-  
+      //   refs.preloader.classList.remove('is-hidden')
+      // setTimeout(() => {
+      //   refs.preloader.classList.add('is-hidden')
+      // }, 500);
+
   function resetMarkup() {
     refs.cardsMovieList.innerHTML = '';
     api.resetPageNumber();
