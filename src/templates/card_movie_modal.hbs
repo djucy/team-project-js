@@ -1,9 +1,12 @@
 {{!-- шаблон для карточки модального окна и окна карточки --}}
 
-        {{!-- <div class="img_movie"><img src="https://image.tmdb.org/t/p/w500{{poster_path}}" alt="{{title}}" alt=""></div>
+      {{!-- <div class="detailes-movie" data-id="{{id}}"> --}}
+
+       
+        <div class="img_movie"><img src="https://image.tmdb.org/t/p/w500{{poster_path}}" alt="{{title}}" alt=""></div>
         <div class="about_movie">
           <h1 class="about_movie__title">{{title}}{{name}}</h1>
-          
+        
           <table class="about_movie__table">
             <tr class="about_movie__item">
               <td class="about_movie__type">Vote / Votes</td>
@@ -19,14 +22,15 @@
             </tr>
             <tr class="about_movie__item">
               <td class="about_movie__type">Genre</td>
-              <td>{{genre_ids}}</td>
+              <td>{{genres.name}}</td>
             </tr>
           </table>
-    
+        
           <h2 class="about_movie__list">ABOUT</h2>
           <p class="about_movie__text">{{overview}}</p>
           <div class="modal-button">
             <button class="button-watched button-watched-modal">add to Watched</button>
             <button class="button-queue button-queue-modal">add to queue</button>
           </div>
-        </div> --}}
+        </div>
+        {{!-- </div> --}}
