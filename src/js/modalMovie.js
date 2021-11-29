@@ -72,6 +72,7 @@ export default function modalMovie() {
   function onCloseModalClick() {
     refs.movieModal.classList.remove('is-open');
     refs.movieContent.src = '';
+    enableScrolling();
   }
 
   // при клике на бэкдроп закрывается модалка
@@ -79,7 +80,7 @@ export default function modalMovie() {
   function onModalClick(evt) {
     if (refs.movieModal === evt.target) {
       onCloseModalClick();
-      
+      enableScrolling();
     }
   }
 
@@ -88,15 +89,22 @@ export default function modalMovie() {
   document.addEventListener('keydown', e => {
     if (e.key === 'Escape') {
       onCloseModalClick();
-     
+      enableScrolling();
     }
   });
 }
 
 modalMovie();
 
+
 function disableScrolling(){
     var x=window.scrollX;
     var y=window.scrollY;
-    window.onscroll=function(){window.scrollTo(x, y);};
+    window.onscroll=function(){
+      window.scrollTo(x, y);
+    };
+}
+
+function enableScrolling(){
+    window.onscroll=function(){};
 }
