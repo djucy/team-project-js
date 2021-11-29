@@ -14,7 +14,7 @@ export default function modalMovie() {
     createCardMovie: document.querySelector('.card_modal'),
   };
 
-  console.log(refs.movieModal);
+  // console.log(refs.movieModal);
 
   refs.movieModal.addEventListener('click', onModalClick);
   refs.movieCards.addEventListener('click', onPictureClick);
