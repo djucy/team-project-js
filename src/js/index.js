@@ -3,7 +3,7 @@ import '../sass/main.scss';
 
 import markupCardMovie from './markupCardMovie';
 import inputMoviesSerch from './inputMoviesSerch';
-// import pageSwitch from './pageSwitch';
+import pageSwitch from './pageSwitch';
 //import { modalMovie } from './modalMovie';
 import onTitleClick  from './movieDescriptionFullsize';
 import modalTeam from './modal-team';
