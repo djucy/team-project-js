@@ -9,7 +9,6 @@
     background-repeat: no-repeat;
     width: 20px;
     height: 20px;
-    fill: white;
 }
 
 .scrollToTop:hover {
@@ -17,9 +16,10 @@
 }
 
 .buttonTop {
+    display: none;
     position: fixed;
     bottom: 45px;
-    right: 5px;
+    right: 10px;
     background-color: $accent-color;
     border: 0px solid transparent;
     border-radius: 50%;
