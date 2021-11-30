@@ -85,8 +85,8 @@ function onAddToWatched(el) {
   if (el.dataset !== undefined) {
     libraryData.push(el.dataset)
   }
-  }
-  
+}
+
 console.log(libraryData)
 
 // закрывается по кнопке
