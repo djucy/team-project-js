@@ -5,17 +5,18 @@ const refsTeam = {
   closeModalBtn: document.querySelector('[data-modal-close]'),
   modal: document.querySelector('[data-modal]'),
   backdropModalTeam: document.querySelector('.backdrop-team'),
+  body: document.querySelector('body'),
 };
-
-console.log(refsTeam.openModalBtn, 'openModalBtnyul');
 
 function onModalTeamBtn() {
   refsTeam.openModalBtn.addEventListener('click', toggleModal);
   refsTeam.closeModalBtn.addEventListener('click', toggleModal);
+  refsTeam.closeModalBtn.addEventListener('click', bodySeen);
   refsTeam.backdropModalTeam.addEventListener('click', onBackdropClick);
 }
 
 function toggleModal() {
+  bodyHidden();
   return refsTeam.modal.classList.toggle('visually-hidden');
 }
 
@@ -23,7 +24,9 @@ function toggleModal() {
 
 document.addEventListener('keydown', e => {
   if (e.code === 'Escape') {
-    return refsTeam.modal.classList.add('visually-hidden');
+    return (
+      refsTeam.modal.classList.add('visually-hidden'), refsTeam.body.classList.remove('body-hidden')
+    );
   }
 });
 
@@ -36,7 +39,18 @@ document.addEventListener('keydown', e => {
 function onBackdropClick(evt) {
   if (refsTeam.backdropModalTeam === evt.target) {
     toggleModal();
+    bodySeen();
   }
 }
+
+function bodyHidden() {
+  return refsTeam.body.classList.add('body-hidden');
+}
+
+function bodySeen() {
+  return refsTeam.body.classList.remove('body-hidden');
+}
+
+console.log('refsTeam.body', refsTeam.body);
 
 onModalTeamBtn();

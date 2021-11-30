@@ -1,8 +1,7 @@
 {{!-- шаблон для карточки модального окна и окна карточки --}}
 
-      {{!-- <div class="detailes-movie" data-id="{{id}}"> --}}
+      <div class="card_movie" data-id="{{id}}">
 
-       
         <div class="img_movie"><img src="https://image.tmdb.org/t/p/w500{{poster_path}}" alt="{{title}}" alt=""></div>
         <div class="about_movie">
           <h1 class="about_movie__title">{{title}}{{name}}</h1>
@@ -29,8 +28,8 @@
           <h2 class="about_movie__list">ABOUT</h2>
           <p class="about_movie__text">{{overview}}</p>
           <div class="modal-button">
-            <button class="button-watched button-watched-modal">add to Watched</button>
-            <button class="button-queue button-queue-modal">add to queue</button>
+            <button id="add-movie" class="button-watched button-watched-modal" type="button">add to Watched</button>
+            <button id="queue-movie" class="button-queue button-queue-modal" type="button">add to queue</button>
           </div>
         </div>
-        {{!-- </div> --}}
+        </div>
