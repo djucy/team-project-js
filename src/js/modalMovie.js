@@ -16,15 +16,17 @@ export default function modalMovie() {
     createCardMovie: document.querySelector('.card_modal'),
   };
 
-
   refs.movieModal.addEventListener('click', onModalClick);
   refs.movieCards.addEventListener('click', onPictureClick);
   refs.closeModal.addEventListener('click', onCloseModalClick);
+
+  let libraryData = []; // сюда записываются данные для библиотеки
 
   // открытие модалки при клике на картинку из галереи фильмов
 
   function onPictureClick(evt) {
     evt.preventDefault();
+    // console.log(evt.path[3])
     if (!evt.target.classList.contains('card-movie__img')) {
       return;
     }
@@ -33,18 +35,17 @@ export default function modalMovie() {
     // console.log(modalMarkup(evt.path[3]));
     refs.createCardMovie.innerHTML = '';
     refs.createCardMovie.insertAdjacentHTML('afterbegin', modalMarkup(evt.path[3]));
-    
     const buttonAddToWatchet = document.querySelector('.button-watched-modal');
     const buttonAddToQueue = document.querySelector('.button-queue-modal');
-    console.log(buttonAddToWatchet);
+    // console.log(buttonAddToWatchet);
     buttonAddToWatchet.addEventListener('click', onAddToWatched);
     buttonAddToQueue.addEventListener('click', addToQueue);
     disableScrolling();
-  }
-
-  function modalMarkup(el) {
+  
+    function modalMarkup(el) {
+      onAddToWatched(el);
     return `
-    <article data-id=${el.dataset.id} class="card_movie">
+        <article data-id=${el.dataset.id} class="card_movie">
         <div class="img_movie"><img class="img_movie__card" src="${el.dataset.src}" alt="${el.dataset.title}" alt=""></div>
         <div class="about_movie">
           <h1 class="about_movie__title">${el.dataset.title}${el.dataset.name}</h1>
@@ -75,10 +76,20 @@ export default function modalMovie() {
             <button id="queue-movie" class="button-queue button-queue-modal">add to queue</button>
           </div>
         </div>
-    </article>`;
+        </article>`;
+    }
   }
-  // закрывается по кнопке
+  
+function onAddToWatched(el) {
+  // console.log(el.dataset)
+  if (el.dataset !== undefined) {
+    libraryData.push(el.dataset)
+  }
+}
 
+console.log(libraryData)
+
+// закрывается по кнопке
   function onCloseModalClick() {
     refs.movieModal.classList.remove('is-open');
     refs.movieContent.src = '';
@@ -104,11 +115,6 @@ export default function modalMovie() {
   });
 }
 modalMovie();
-function onAddToWatched(event) {
- console.log(event.target.closest('article').dataset.id);
-    console.log('add to watched');
-    
-}
 function addToQueue() {
   console.log('queueueueue');
 
