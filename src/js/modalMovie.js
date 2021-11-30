@@ -44,6 +44,7 @@ export default function modalMovie() {
 
   function modalMarkup(el) {
     return `
+        <article data-id=${el.dataset.id} class="card_movie">
         <div class="img_movie"><img class="img_movie__card" src="${el.dataset.src}" alt="${el.dataset.title}" alt=""></div>
         <div class="about_movie">
           <h1 class="about_movie__title">${el.dataset.title}${el.dataset.name}</h1>
@@ -73,7 +74,8 @@ export default function modalMovie() {
             <button id="add-movie" class="button-watched button-watched-modal">add to Watched</button>
             <button id="queue-movie" class="button-queue button-queue-modal">add to queue</button>
           </div>
-        </div>`;
+        </div>
+        </article>`;
   }
   // закрывается по кнопке
 
@@ -102,9 +104,10 @@ export default function modalMovie() {
   });
 }
 modalMovie();
-function onAddToWatched() {
+function onAddToWatched(event) {
+ console.log(event.target.closest('article').dataset.id);
     console.log('add to watched');
-    // localStorage.setItem('watched:');
+    
 }
 function addToQueue() {
   console.log('queueueueue');
