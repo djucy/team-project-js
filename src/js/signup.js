@@ -1,5 +1,5 @@
 import refs from './refs';
-console.log(refs.loginLink);
+export { onCloseModalClick };
 
 refs.loginLink.addEventListener('click', onLoginClick);
 refs.signLink.addEventListener('click', onSignClick);
