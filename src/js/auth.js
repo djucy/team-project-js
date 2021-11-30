@@ -1,6 +1,6 @@
 // Import the functions you need from the SDKs you need
 import { initializeApp } from 'firebase/app';
-import { getAuth, createUserWithEmailAndPassword } from 'firebase/auth';
+import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword,signOut } from 'firebase/auth';
 import { getDatabase } from 'firebase/database';
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
@@ -35,9 +35,17 @@ signForm.addEventListener('submit', e => {
   const email = signForm['sign-imput'].value;
   const password = signForm['sing-pass'].value;
 
+  //sing up the user
+
   createUserWithEmailAndPassword(auth, email, password).then(cred => {
-    console.log(cred);
+    signForm.reset();
   });
 });
 
-//sing up the user
+//logout
+const logout = document.querySelector('#logout');
+logout.addEventListener('click', (e) => {
+    e.preventDefault();
+    signOut()
+
+})
