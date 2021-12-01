@@ -46,7 +46,7 @@ export default function modalMovie() {
     buttonAddToQueue.addEventListener('click', () => {
       addTolibrary(takeCardMarkup, 'queue');
     });
-
+    disableScrolling();
     // поиск разметки карточки по модалке
   }
 
