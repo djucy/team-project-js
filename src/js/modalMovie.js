@@ -86,14 +86,7 @@ export default function modalMovie() {
     }
   }
   
-function onAddToWatched(el) {
-  // console.log(el.dataset)
-  if (el.dataset !== undefined) {
-    libraryData.push(el.dataset)
-  }
-}
 
-console.log(libraryData)
 
 // закрывается по кнопке
   function onCloseModalClick() {
