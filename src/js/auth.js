@@ -75,7 +75,7 @@ ${el}
 //lisend auth changed
 onAuthStateChanged(auth, user => {
   if (user) {
-     refs.libraryLink.classList.remove('visually-hidden');
+    refs.libraryLink.classList.remove('visually-hidden');
   } else {
     refs.libraryLink.classList.add('visually-hidden');
   }
@@ -101,6 +101,7 @@ signForm.addEventListener('submit', e => {
 
   createUserWithEmailAndPassword(auth, email, password).then(cred => {
     signForm.reset();
+    onCloseModalClick();
   });
 });
 
@@ -109,6 +110,7 @@ const logout = document.querySelector('#logout');
 logout.addEventListener('click', e => {
   e.preventDefault();
   signOut(auth);
+  a;
   onCloseModalClick();
 });
 
