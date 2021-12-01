@@ -5,6 +5,7 @@
 import { addTolibrary } from './auth';
 
 export default function modalMovie() {
+
   const refs = {
     movieCards: document.querySelector('.js-cards-movie-list'),
     movieModal: document.querySelector('.lightbox'),
@@ -83,12 +84,9 @@ export default function modalMovie() {
           </div>
         </div>
         </article>`;
-    }
   }
-  
 
-
-// закрывается по кнопке
+  // закрывается по кнопке
   function onCloseModalClick() {
     refs.movieModal.classList.remove('is-open');
     refs.movieContent.src = '';
@@ -113,18 +111,15 @@ export default function modalMovie() {
     }
   });
 
-modalMovie();
-function addToQueue() {
-  console.log('queueueueue');
-}
-function disableScrolling() {
-  var x = window.scrollX;
-  var y = window.scrollY;
-  window.onscroll = function () {
-    window.scrollTo(x, y);
-  };
-}
+  function disableScrolling() {
+    var x = window.scrollX;
+    var y = window.scrollY;
+    window.onscroll = function () {
+      window.scrollTo(x, y);
+    };
+  }
 
-function enableScrolling() {
-  window.onscroll = function () {};
+  function enableScrolling() {
+    window.onscroll = function () {};
+  }
 }
