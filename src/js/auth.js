@@ -8,9 +8,13 @@ import {
   onAuthStateChanged,
 } from 'firebase/auth';
 import { getDatabase, ref, set, onValue, child, get } from 'firebase/database';
-import { getFirestore, collection, getDocs } from 'firebase/firestore';
+import { getFirestore, collection, getDocs, addDoc } from 'firebase/firestore';
+import refs from './refs';
 
 import { onCloseModalClick } from './signup';
+import { modalMovie } from './modalMovie';
+
+export { addTolibrary, getLibrary };
 
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
@@ -31,14 +35,44 @@ const auth = getAuth();
 const db = getFirestore();
 
 //get data
+function getLibrary(path) {
+  getDocs(collection(db, path)).then(snapShot => {
+    setupQueue(snapShot.docs);
+  });
+}
 
-const querySnapshot = getDocs(collection(db, 'Films')).then(snapShot => console.log(snapShot.docs));
-console.log(querySnapshot);
+//add films
+function addTolibrary(obj, path) {
+  addDoc(collection(db, path), obj);
+}
+//drow queue
+refs.cardsMovieList;
+
+const setupQueue = data => {
+  let html = '';
+  let newArr = [];
+  let markupArr = [];
+  data.forEach(doc => {
+    if (doc.data().markup) {
+      newArr.push(doc.data());
+      markupArr = newArr.map(el => (el = el.markup));
+    }
+  });
+  const uniqeArr = new Set(markupArr);
+  uniqeArr.forEach(el => {
+    const li = `
+    <li class="card-list__item">
+${el}
+   </li>
+  `;
+    html += li;
+  });
+
+  refs.cardsMovieList.innerHTML = html;
+};
 
 //lisend auth changed
-onAuthStateChanged(auth, user => {
-  console.log(user);
-});
+onAuthStateChanged(auth, user => {});
 
 //sign up
 

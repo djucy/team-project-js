@@ -2,7 +2,7 @@ import createCardMovies from '../templates/cardMovie.hbs';
 import refs from './refs';
 import Api from './apiFetch';
 import modalMovie from './modalMovie';
-import {createPaginationTrending, createPaginationSearch, container} from './pagination';
+//import {createPaginationTrending, createPaginationSearch, container} from './pagination';
 
 export {onCreateMarkup, onRatingFixedNumber, onError};
 
