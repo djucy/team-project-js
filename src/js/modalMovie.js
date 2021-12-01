@@ -24,6 +24,7 @@ export default function modalMovie() {
 
   function onPictureClick(evt) {
     evt.preventDefault();
+    // console.log(evt.path[3])
     if (!evt.target.classList.contains('card-movie__img')) {
       return;
     }
@@ -82,9 +83,19 @@ export default function modalMovie() {
           </div>
         </div>
         </article>`;
+    }
   }
-  // закрывается по кнопке
+  
+function onAddToWatched(el) {
+  // console.log(el.dataset)
+  if (el.dataset !== undefined) {
+    libraryData.push(el.dataset)
+  }
+}
 
+console.log(libraryData)
+
+// закрывается по кнопке
   function onCloseModalClick() {
     refs.movieModal.classList.remove('is-open');
     refs.movieContent.src = '';
@@ -108,9 +119,8 @@ export default function modalMovie() {
       enableScrolling();
     }
   });
-}
-modalMovie();
 
+modalMovie();
 function addToQueue() {
   console.log('queueueueue');
 }
