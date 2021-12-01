@@ -2,11 +2,9 @@
 // import cardsModalsMarkup from './markupCardMovie';
 // import { onCreateMarkup, normalRatingYearGenres } from './markupCardMovie';
 // import Api from './apiFetch';
-
-
+import { addTolibrary } from './auth';
 
 export default function modalMovie() {
-
   const refs = {
     movieCards: document.querySelector('.js-cards-movie-list'),
     movieModal: document.querySelector('.lightbox'),
@@ -20,7 +18,7 @@ export default function modalMovie() {
   refs.movieCards.addEventListener('click', onPictureClick);
   refs.closeModal.addEventListener('click', onCloseModalClick);
 
-  let libraryData = []; // сюда записываются данные для библиотеки
+  const takeCardMarkup = { markup: '' };
 
   // открытие модалки при клике на картинку из галереи фильмов
 
@@ -32,22 +30,30 @@ export default function modalMovie() {
     }
 
     refs.movieModal.classList.add('is-open');
-    // console.log(modalMarkup(evt.path[3]));
+
     refs.createCardMovie.innerHTML = '';
     refs.createCardMovie.insertAdjacentHTML('afterbegin', modalMarkup(evt.path[3]));
+
     const buttonAddToWatchet = document.querySelector('.button-watched-modal');
     const buttonAddToQueue = document.querySelector('.button-queue-modal');
-    // console.log(buttonAddToWatchet);
-    buttonAddToWatchet.addEventListener('click', onAddToWatched);
-    buttonAddToQueue.addEventListener('click', addToQueue);
-    disableScrolling();
-  
-    function modalMarkup(el) {
-      onAddToWatched(el);
+
+    takeCardMarkup.markup = evt.path[3].innerHTML;
+
+    buttonAddToWatchet.addEventListener('click', () => {
+      addTolibrary(takeCardMarkup, 'wached');
+    });
+    buttonAddToQueue.addEventListener('click', () => {
+      addTolibrary(takeCardMarkup, 'queue');
+    });
+
+    // поиск разметки карточки по модалке
+  }
+
+  function modalMarkup(el) {
     return `
-        <article data-id=${el.dataset.id} class="card_movie">
+        
         <div class="img_movie"><img class="img_movie__card" src="${el.dataset.src}" alt="${el.dataset.title}" alt=""></div>
-        <div class="about_movie">
+        <div class="about_movie data-id=${el.dataset.id} class="card_movie"">
           <h1 class="about_movie__title">${el.dataset.title}${el.dataset.name}</h1>
           
           <table class="about_movie__table">
@@ -113,20 +119,19 @@ console.log(libraryData)
       enableScrolling();
     }
   });
-}
+
 modalMovie();
 function addToQueue() {
   console.log('queueueueue');
-
 }
-function disableScrolling(){
-    var x=window.scrollX;
-    var y=window.scrollY;
-    window.onscroll=function(){
-      window.scrollTo(x, y);
-    };
+function disableScrolling() {
+  var x = window.scrollX;
+  var y = window.scrollY;
+  window.onscroll = function () {
+    window.scrollTo(x, y);
+  };
 }
 
-function enableScrolling(){
-  window.onscroll = function () { };
-  }
+function enableScrolling() {
+  window.onscroll = function () {};
+}

@@ -26,6 +26,8 @@
     "sass": "^1.32.8"
   },
   "dependencies": {
+    "compass-mixins": "^0.12.10",
+    "firebase": "^9.5.0",
     "tui-pagination": "^3.4.1"
   }
 }

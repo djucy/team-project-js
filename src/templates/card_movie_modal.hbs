@@ -1,35 +1,42 @@
-{{!-- шаблон для карточки модального окна и окна карточки --}}
+{{! шаблон для карточки модального окна и окна карточки }}
 
-      {{!-- <div class="card_movie" data-id="{{id}}">
+<div class='card_movie' data-id='{{id}}'>
 
-        <div class="img_movie"><img src="https://image.tmdb.org/t/p/w500{{poster_path}}" alt="{{title}}" alt=""></div>
-        <div class="about_movie">
-          <h1 class="about_movie__title">{{title}}{{name}}</h1>
-        
-          <table class="about_movie__table">
-            <tr class="about_movie__item">
-              <td class="about_movie__type">Vote / Votes</td>
-              <td><span class="rating">{{vote_average}}</span> / <span class="votes">{{vote_count}}</span></td>
-            </tr>
-            <tr class="about_movie__item">
-              <td class="about_movie__type">Popularity</td>
-              <td>{{popularity}}</td>
-            </tr>
-            <tr class="about_movie__item">
-              <td class="about_movie__type">Original Title</td>
-              <td>{{title}}{{name}}</td>
-            </tr>
-            <tr class="about_movie__item">
-              <td class="about_movie__type">Genre</td>
-              <td>{{genres.name}}</td>
-            </tr>
-          </table>
-        
-          <h2 class="about_movie__list">ABOUT</h2>
-          <p class="about_movie__text">{{overview}}</p>
-          <div class="modal-button">
-            <button id="add-movie" class="button-watched button-watched-modal" type="button">add to Watched</button>
-            <button id="queue-movie" class="button-queue button-queue-modal" type="button">add to queue</button>
-          </div>
-        </div>
-        </div> --}}
+  <div class='img_movie'><img
+      src='https://image.tmdb.org/t/p/w500{{poster_path}}'
+      alt='{{title}}'
+      alt=''
+    /></div>
+  <div class='about_movie'>
+    <h1 class='about_movie__title'>{{title}}{{name}}</h1>
+
+    <table class='about_movie__table'>
+      <tr class='about_movie__item'>
+        <td class='about_movie__type'>Vote / Votes</td>
+        <td><span class='rating'>{{vote_average}}</span>
+          /
+          <span class='votes'>{{vote_count}}</span></td>
+      </tr>
+      <tr class='about_movie__item'>
+        <td class='about_movie__type'>Popularity</td>
+        <td>{{popularity}}</td>
+      </tr>
+      <tr class='about_movie__item'>
+        <td class='about_movie__type'>Original Title</td>
+        <td>{{title}}{{name}}</td>
+      </tr>
+      <tr class='about_movie__item'>
+        <td class='about_movie__type'>Genre</td>
+        <td>{{genres.name}}</td>
+      </tr>
+    </table>
+
+    <h2 class='about_movie__list'>ABOUT</h2>
+    <p class='about_movie__text'>{{overview}}</p>
+    <div class='modal-button'>
+      <button id='add-movie' class='button-watched button-watched-modal' type='button'>add to
+        Watched</button>
+      <button id='queue-movie' class='button-queue button-queue-modal' type='button'>add to queue</button>
+    </div>
+  </div>
+</div>
