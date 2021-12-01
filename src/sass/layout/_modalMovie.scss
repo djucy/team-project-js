@@ -93,6 +93,7 @@
   }
   &__title {
     font-size: 30px;
+    color: #000000;
     line-height: 35px;
     margin-bottom: 20px;
     @media screen and (min-width: 768px) and (max-width: 1023px) {
@@ -107,6 +108,7 @@
   &__table {
     font-size: 12px;
     line-height: 1.33;
+    color: #000000;
     margin-top: 20px;
     margin-bottom: 20px;
     text-align: left;
@@ -117,6 +119,7 @@
   &__text {
     font-size: 12px;
     line-height: 1.67;
+    color: #000000;
     margin-bottom: 20px;
     margin-top: 10px;
     @media screen and (min-width: 768px) and (max-width: 1023px) {
@@ -126,6 +129,15 @@
     @media screen and (min-width: 320px) and (max-width: 767px) {
       width: 240px;
     }
+  }
+  &__list {
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 12px;
+    line-height: 1.33;
+
+    color: #000000;
   }
   &__item {
     height: 25px;
@@ -142,14 +154,12 @@
   border: 1px solid #ff6b01;
   text-transform: uppercase;
   font-weight: 500;
-
 }
 
 .button-queue-modal:hover,
 .button-watched-modal:hover {
   color: #ffffff;
   cursor: pointer;
-
 }
 
 .button-queue-modal {
