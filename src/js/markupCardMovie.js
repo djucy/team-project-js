@@ -55,15 +55,15 @@ api
     createPaginationTrending(data);
     // console.log(data.results);
 
-    refs.preloader.classList.remove('is-hidden');
-    setTimeout(() => {
-      onCreateMarkup(data);
-      createPaginationTrending(data);
-      refs.preloader.classList.add('is-hidden');
-    }, 500);
+    // refs.preloader.classList.remove('is-hidden');
+    // setTimeout(() => {
+    //   onCreateMarkup(data);
+    //   createPaginationTrending(data);
+    //   refs.preloader.classList.add('is-hidden');
+    // }, 500);
   })
-  .catch(onError);
-
+  .catch(onError);//onError
+  
 // перезаписывает значение рейтинга с числом после запятой
 function onRatingFixedNumber(data) {
   data.forEach(el => {
