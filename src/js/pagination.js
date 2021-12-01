@@ -3,6 +3,7 @@ import 'tui-pagination/dist/tui-pagination.css';
 import {onCreateMarkup, onError} from './markupCardMovie';
 export {createPaginationTrending, createPaginationSearch, container};
 import {Api} from './apiFetch';
+import {themeIcon, themeSwitchButton} from './theme_switcher';
 
 const filmListRef = document.querySelector('.js-cards-movie-list');
 const container = document.getElementById('tui-pagination-container');
@@ -31,8 +32,8 @@ const options = {
           '<span class="tui-ico-ellip">...</span>' +
         '</a>'
     }
-  };
-  
+  };  
+
 function  createPaginationTrending (result) {
     options.totalItems = result.total_results;
     const pagination = new Pagination(container, options);
@@ -67,7 +68,8 @@ function  createPaginationSearch (result, inputValue) {
         .then(data => {
             filmListRef.innerHTML = '';
             onCreateMarkup(data);
-            window.scroll(top);        
+            window.scroll(top);
+            themeCheck();        
           })
           .catch(onError);
     });
