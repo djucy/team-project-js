@@ -2,7 +2,7 @@
 // import cardsModalsMarkup from './markupCardMovie';
 // import { onCreateMarkup, normalRatingYearGenres } from './markupCardMovie';
 // import Api from './apiFetch';
-import addTolibrary from './auth';
+import { addTolibrary } from './auth';
 
 export default function modalMovie() {
   const refs = {
@@ -41,8 +41,9 @@ export default function modalMovie() {
     buttonAddToWatchet.addEventListener('click', () => {
       addTolibrary(takeCardMarkup, 'wached');
     });
-    buttonAddToQueue.addEventListener('click', addToQueue);
-    disableScrolling();
+    buttonAddToQueue.addEventListener('click', () => {
+      addTolibrary(takeCardMarkup, 'queue');
+    });
 
     // поиск разметки карточки по модалке
   }

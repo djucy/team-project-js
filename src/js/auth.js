@@ -45,6 +45,7 @@ function getLibrary(path) {
 function addTolibrary(obj, path) {
   addDoc(collection(db, path), obj);
 }
+addTolibrary;
 //drow queue
 refs.cardsMovieList;
 
@@ -72,7 +73,13 @@ ${el}
 };
 
 //lisend auth changed
-onAuthStateChanged(auth, user => {});
+onAuthStateChanged(auth, user => {
+  if (user) {
+     refs.libraryLink.classList.remove('visually-hidden');
+  } else {
+    refs.libraryLink.classList.add('visually-hidden');
+  }
+});
 
 //sign up
 
