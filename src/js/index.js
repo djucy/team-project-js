@@ -10,3 +10,4 @@ import modalTeam from './modal-team';
 import premiere from './premiere';
 
 import buttonServices from './buttonServices';
+import theme_switcher from './theme_switcher';
