@@ -2,9 +2,9 @@ import createCardMovies from '../templates/cardMovie.hbs';
 import refs from './refs';
 import Api from './apiFetch';
 import modalMovie from './modalMovie';
-import {createPaginationTrending, createPaginationSearch, container} from './pagination';
+import { createPaginationTrending, createPaginationSearch, container } from './pagination';
 
-export {onCreateMarkup, onRatingFixedNumber, onError};
+export { onCreateMarkup, onRatingFixedNumber, onError };
 
 const api = new Api();
 
@@ -54,12 +54,13 @@ api
     onCreateMarkup(data);
     createPaginationTrending(data);
     // console.log(data.results);
-    // refs.preloader.classList.remove('is-hidden')
-    // setTimeout(() => {
-    //   onCreateMarkup(data);
-    //   createPaginationTrending(data);
-    //   refs.preloader.classList.add('is-hidden')
-    // }, 250)
+
+    refs.preloader.classList.remove('is-hidden');
+    setTimeout(() => {
+      onCreateMarkup(data);
+      createPaginationTrending(data);
+      refs.preloader.classList.add('is-hidden');
+    }, 500);
   })
   .catch(onError);
 
@@ -97,19 +98,19 @@ function normalRatingYearGenres(data) {
 
 function onCreateMarkup(data) {
   data.results.forEach(movie => {
-    if(!movie.genre_ids) {
+    if (!movie.genre_ids) {
       movie.genre_ids = [1];
     } else {
       return;
-    };
-    
-    if(!movie.vote_average) {
+    }
+
+    if (!movie.vote_average) {
       movie.vote_average = 0;
     } else {
       return;
-    };
-  })
-  
+    }
+  });
+
   normalRatingYearGenres(data);
   refs.cardsMovieList.insertAdjacentHTML('afterbegin', createCardMovies(data.results));
   return data.results;
@@ -132,30 +133,30 @@ function onSearchMovies(e) {
       refs.searchForm.reset();
     })
     .catch(onError);
-  }
-      //   refs.preloader.classList.remove('is-hidden')
-      // setTimeout(() => {
-      //   refs.preloader.classList.add('is-hidden')
-      // }, 500);
+}
+//   refs.preloader.classList.remove('is-hidden')
+// setTimeout(() => {
+//   refs.preloader.classList.add('is-hidden')
+// }, 500);
 
-  function resetMarkup() {
-    refs.cardsMovieList.innerHTML = '';
-    api.resetPageNumber();
-    refs.searchForm.reset();
-  }
-  
+function resetMarkup() {
+  refs.cardsMovieList.innerHTML = '';
+  api.resetPageNumber();
+  refs.searchForm.reset();
+}
+
 //===Проверка корректности поискового запроса=========
 
 function onError() {
-  refs.textInputError.classList.remove('is-hidden')
+  refs.textInputError.classList.remove('is-hidden');
   console.log('Search result not successful. Enter the correct movie name and');
 }
 
 function incorrectInput(e) {
   if (e.length === 0) {
-    refs.textInputError.classList.remove('is-hidden')
+    refs.textInputError.classList.remove('is-hidden');
   } else {
-    refs.textInputError.classList.add('is-hidden')
+    refs.textInputError.classList.add('is-hidden');
   }
 }
 
